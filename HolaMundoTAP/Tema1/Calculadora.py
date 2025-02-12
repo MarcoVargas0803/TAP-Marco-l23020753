@@ -1,60 +1,36 @@
 import customtkinter as ct
-from customtkinter import CTkFrame
 
+# Configuración de la aplicación
 app = ct.CTk()
 app.title("Calculadora")
-app.geometry("1000x500")
-#app.minsize(200,200)
-#app.maxsize(300,400)
-app.columnconfigure(1,weight=1)
-app.rowconfigure(1,weight=1)
+app.geometry("600x250")
+app.resizable(False, False)
 
-#fondo
-c1 = CTkFrame(app,fg_color="white")
-c2 = CTkFrame(app,fg_color ="gray")
+# Campo de entrada
+entry = ct.CTkEntry(app, font=("Arial", 24), justify="right")
+entry.grid(row=0, column=0, columnspan=4, ipadx=8, ipady=15, pady=10, padx=10, sticky="nsew")
 
-c1.grid(row=0,column=0,sticky="nsew")
-c2.grid(row=1,column=0,sticky="nsew")
+# Contenedor de botones
+button_frame = ct.CTkFrame(app)
+button_frame.grid(row=1, column=0, columnspan=4, sticky="nsew")
 
-#botones numerales
-n1 = CTkFrame(c2,fg_color="purple")
-n2 = CTkFrame(c2,fg_color="purple")
-n3 = CTkFrame(c2,fg_color="purple")
-n4 = CTkFrame(c2,fg_color="purple")
-n5 = CTkFrame(c2,fg_color="purple")
-n6 = CTkFrame(c2,fg_color="purple")
-n7 = CTkFrame(c2,fg_color="purple")
-n8 = CTkFrame(c2,fg_color="purple")
-n9 = CTkFrame(c2,fg_color="purple")
+# Definición de los botones
+buttons = [
+    ("7", 0, 0), ("8", 0, 1), ("9", 0, 2), ("/", 0, 3),
+    ("4", 1, 0), ("5", 1, 1), ("6", 1, 2), ("*", 1, 3),
+    ("1", 2, 0), ("2", 2, 1), ("3", 2, 2), ("-", 2, 3),
+    ("0", 3, 0), ("C", 3, 1), ("=", 3, 2), ("+", 3, 3)
+]
 
-#botones operaciòn y resultado
-op_mas = CTkFrame(c2,fg_color="yellow")
-op_menos = CTkFrame(c2,fg_color="yellow")
-op_multi = CTkFrame(c2,fg_color="yellow")
-op_div = CTkFrame(c2,fg_color="yellow")
+# Creación de botones en el grid
+for text, row, col in buttons:
+    btn = ct.CTkButton(button_frame, text=text, font=("Arial", 20))
+    btn.grid(row=row, column=col, sticky="nsew", padx=5, pady=5)
 
+# Ajustar las filas y columnas para que los botones sean responsivos
+for i in range(4):
+    button_frame.rowconfigure(i, weight=1)
+    button_frame.columnconfigure(i, weight=2)
 
-
-#Grid
-c1.grid(row=0,column=0,sticky="nsew")
-
-#Grid numeral
-n1.grid(row=0,column=0,sticky="nsew",pady=8,padx=8)
-n2.grid(row=0,column=1,sticky="nsew",pady=8,padx=8)
-n3.grid(row=0,column=2,sticky="nsew",pady=8,padx=8)
-n4.grid(row=1,column=0,sticky="nsew",pady=8,padx=8)
-n5.grid(row=1,column=1,sticky="nsew",pady=8,padx=8)
-n6.grid(row=1,column=2,sticky="nsew",pady=8,padx=8)
-n7.grid(row=2,column=0,sticky="nsew",pady=8,padx=8)
-n8.grid(row=2,column=1,sticky="nsew",pady=8,padx=8)
-n9.grid(row=2,column=2,sticky="nsew",pady=8,padx=8)
-
-op_mas.grid(row=0,column=3,sticky="nsew",pady=8,padx=8)
-op_menos.grid(row=1,column=3,sticky="nsew",pady=8,padx=8)
-op_multi.grid(row=0,column=4,sticky="nsew",pady=8,padx=8)
-op_div.grid(row=0,column=4,sticky="nsew",pady=8,padx=8)
-
-
-
-
+# Ejecutar la aplicación
 app.mainloop()
