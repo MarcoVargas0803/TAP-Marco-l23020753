@@ -32,7 +32,7 @@ f4.grid(row=3, column=0, sticky="nsew", pady=5, padx=5)
 f5.grid(row=4, column=0, sticky="nsew", pady=5, padx=5)
 
 # Labels
-P1 = ct.CTkLabel(f1, text="Soy una pregunta", text_color="Red", anchor="w")
+P1 = ct.CTkLabel(f1, text="Sexo de Nacimiento", text_color="Red", anchor="w")
 P2 = ct.CTkLabel(f2, text="Soy una pregunta 2", text_color="Red", anchor="w")
 P3 = ct.CTkLabel(f3, text="Soy una pregunta 3", text_color="Red", anchor="w")
 P4 = ct.CTkLabel(f4, text="Soy una pregunta 4", text_color="Red", anchor="w")

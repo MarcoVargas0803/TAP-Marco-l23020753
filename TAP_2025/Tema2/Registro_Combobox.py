@@ -51,7 +51,6 @@ P4.pack(side="left", padx=10, pady=10)
 check_var1 = ct.BooleanVar()
 check_var2 = ct.BooleanVar()
 check_var3 = ct.BooleanVar()
-
 radio_var = ct.StringVar(value="")
 
 # Entradas de texto
@@ -88,7 +87,7 @@ def submit():
     print(f"Nombre: {nombre}")
     print(f"Apellido: {apellido}")
     print(f"Género: {genero}")
-    print(f"Perteneces a: {', '.join(pertenece_a)}")
+    print(f"Perteneces a: {', '.join(pertenece_a) if pertenece_a else 'Ninguno'}")
 
 
 # Botón para enviar los datos

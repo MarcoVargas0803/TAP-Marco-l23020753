@@ -9,7 +9,7 @@ app = ct.CTk()
 app.title("Registro")
 
 # Tamaño y configuración de la ventana
-app.geometry("900x450")
+app.geometry("900x450")t5
 app.resizable(False, False)
 
 # Configuración de columnas y filas
