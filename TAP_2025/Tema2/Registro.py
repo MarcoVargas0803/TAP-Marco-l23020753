@@ -18,12 +18,12 @@ for i in range(5):
     app.grid_rowconfigure(i, weight=1)
 
 # Creación de Frames
-titulo = ct.CTkFrame(app, fg_color="black")
-f1 = ct.CTkFrame(app, fg_color="black", height=100, width=200)
-f2 = ct.CTkFrame(app, fg_color="black")
-f3 = ct.CTkFrame(app, fg_color="black")
-f4 = ct.CTkFrame(app, fg_color="black")
-f5 = ct.CTkFrame(app, fg_color="black")
+titulo = ct.CTkFrame(app, fg_color="black",border_width=2)
+f1 = ct.CTkFrame(app, fg_color="black", height=100, width=200,border_width=2)
+f2 = ct.CTkFrame(app, fg_color="black",border_width=2)
+f3 = ct.CTkFrame(app, fg_color="black",border_width=2)
+f4 = ct.CTkFrame(app, fg_color="black",border_width=2)
+f5 = ct.CTkFrame(app, fg_color="black",border_width=2)
 
 # Posicionamiento de los Frames
 titulo.grid(row=0, column=0, sticky="nsew", pady=5, padx=5)
@@ -34,7 +34,7 @@ f4.grid(row=4, column=0, sticky="nsew", pady=5, padx=5)
 f5.grid(row=5, column=0, sticky="nsew", pady=5, padx=5)
 
 # Labels
-P_titulo = ct.CTkLabel(titulo, text="R E G I S T R O ", text_color="Red", anchor="w")
+P_titulo = ct.CTkLabel(titulo, text="REGISTRO", text_color="Red", anchor="w", font=("Arial",50))
 P1 = ct.CTkLabel(f1, text="Nombre: ", text_color="Red", anchor="w")
 P2 = ct.CTkLabel(f2, text="Apellido", text_color="Red", anchor="w")
 P3 = ct.CTkLabel(f3, text="Género: ", text_color="Red", anchor="w")
@@ -54,15 +54,22 @@ check_var3 = ct.BooleanVar()
 radio_var = ct.StringVar(value="")
 
 # Entradas de texto
-entrada_nombre = ct.CTkEntry(f1)
-entrada_nombre.pack(padx=5, pady=5)
+entrada_nombre = ct.CTkEntry(f1,width= 40)
+entrada_nombre.pack(padx=20,pady=5,fill="x",expand=True)
 
-entrada_apellido = ct.CTkEntry(f2)
-entrada_apellido.pack(padx=5, pady=5)
+entrada_apellido = ct.CTkEntry(f2,width= 40)
+entrada_apellido.pack(padx=20, pady=5,fill="x",expand=True)
+
+#Combobox
+def combobox_callback(choice):
+    print("combobox dropdown clicked:", choice)
+
+combobox = ct.CTkComboBox(f3, values=["Hombre", "Mujer"], command=combobox_callback)
+combobox.set("Genero")
 
 # RadioButtons
-radio3_1 = ct.CTkRadioButton(f3, text="Masculino", variable=radio_var, value="Masculino")
-radio3_2 = ct.CTkRadioButton(f3, text="Femenino", variable=radio_var, value="Femenino")
+#radio3_1 = ct.CTkRadioButton(f3, text="Masculino", variable=radio_var, value="Masculino")
+#radio3_2 = ct.CTkRadioButton(f3, text="Femenino", variable=radio_var, value="Femenino")
 
 # CheckButtons
 checkbox4_1 = ct.CTkCheckBox(f4, text="Deportes", variable=check_var1)
@@ -94,12 +101,16 @@ def submit():
 button_send = ct.CTkButton(f5, text="Enviar", text_color="black", corner_radius=20, fg_color="grey", command=submit)
 
 # Posicionamiento de elementos
-radio3_1.pack(side="right", padx=5)
-radio3_2.pack(side="right", padx=5)
+#radio3_1.pack(side="right", padx=5)
+#radio3_2.pack(side="right", padx=5)
 
-checkbox4_1.pack(side="right", padx=5)
-checkbox4_2.pack(side="right", padx=5)
-checkbox4_3.pack(side="right", padx=5)
+combobox.pack(side="right", padx=20, pady=5,fill="x",expand=True)
+
+
+checkbox4_1.pack(side="right", padx=20)
+checkbox4_2.pack(side="right", padx=20)
+checkbox4_3.pack(side="right", padx=20)
+
 
 button_send.pack(padx=5, pady=5)
 
