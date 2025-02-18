@@ -1,15 +1,12 @@
 #Diseñar una clase Login, donde podamos instanciar las ventanas de login que queramos y podamos
 #Pasar: Foto , fondo , textos:
 #from PIL import Image
+from PIL import Image
 import customtkinter as ct
 
-from PIL import Image
 
-my_image = ct.CTkImage(light_image=Image.open("<path to light mode image>"),
-                                  dark_image=Image.open("<path to dark mode image>"),
-                                  size=(30, 30))
 
-image_label = ct.CTkLabel(app, image=my_image, text="")  # display image with a CTkLabel
+
 
 class Login:
     text_entry_name = "usuario"
@@ -17,12 +14,14 @@ class Login:
     text_entry_button_login = "iniciar sesión"
     text_entry_button_cancel = "cancelar"
 
-    def __init__(self,text_entry_name,text_entry_password,text_entry_button_login,text_entry_button_cancel):
+    def __init__(self,text_entry_name,text_entry_password,text_entry_button_login,text_entry_button_cancel,user_image_path="usuario.png"):
         self.app = ct.CTk()
         self.text_entry_name = text_entry_name
         self.text_entry_password = text_entry_password
         self.text_entry_button_login = text_entry_button_login
         self.text_entry_button_cancel = text_entry_button_cancel
+        self.user_image_path = user_image_path
+
         self.check_var1 = ct.IntVar()
 
         self.app.title("Login")
@@ -60,6 +59,22 @@ class Login:
         f2.grid(row=2, column=0, sticky="nsew", pady=5, padx=5)
         f3.grid(row=3, column=0, sticky="nsew", pady=5, padx=5)
         f4.grid(row=4, column=0, sticky="nsew", pady=5, padx=5)
+
+    def load_image(self):
+        try:
+            self.user_image = ct.CTkImage(light_image=Image.open(self.user_image_path),
+                                          dark_image=Image.open(self.user_image_path),
+                                          size=(100, 100))
+        except Exception as e:
+            print(f"Error cargando la imagen: {e}")
+            self.user_image = None  # Para evitar fallos si la imagen no se carga
+
+    def image_creation(self):
+        if self.user_image:
+            label_image = ct.CTkLabel(self.titulo, image=self.user_image, text="")
+            label_image.pack(padx=10, side="right")
+
+
     def labels_creation(self):
         P_titulo = ct.CTkLabel(self.titulo, text="Login", text_color="Red", anchor="w", font=("Arial", 50))
 
@@ -99,13 +114,15 @@ class Login:
     def ejecution(self):
         self.init_window()
         self.frame_creation()
+        self.load_image()
+        self.image_creation()
         self.labels_creation()
         self.entry_creation()
         self.button_creation()
         self.checkbox_creation()
         self.app.mainloop()
 
-ventana1 = Login("user","password","login","quit")
+ventana1 = Login("user","password","login","quit",user_image_path="usuario.png")
 ventana1.ejecution()
 
 
