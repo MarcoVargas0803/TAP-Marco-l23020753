@@ -1,6 +1,4 @@
-#Diseñar una clase Login, donde podamos instanciar las ventanas de login que queramos y podamos
-#Pasar: Foto , fondo , textos:
-#from PIL import Image
+from Login import Login
 from PIL import Image
 import customtkinter as ct
 
@@ -157,5 +155,3 @@ class Login:
 
 ventana1 = Login("user","password","login","quit",user_image_path="usuario.png")
 ventana1.ejecution()
-
-
