@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d7b809-df45-44a5-8411-f9c9439bb49b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema2/CtkProgressbar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema2/CtkScrollableFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema2/CtkTabview.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema2/CtkTabview_withoutclass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema2/Smtplib.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Scrollbar_Slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Tema2/Scrollbar_Slider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,28 +29,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CRadio_Checkbox.executor": "Run",
-    "Python.C_prueba.executor": "Run",
-    "Python.Contenedores.executor": "Run",
-    "Python.CtkProgressbar.executor": "Run",
-    "Python.CtkScrollableFrame.executor": "Run",
-    "Python.CtkTabview.executor": "Run",
-    "Python.CtkTabview_withoutclass.executor": "Run",
-    "Python.Login.executor": "Run",
-    "Python.Login_c.executor": "Run",
-    "Python.Radio_CheckBox.executor": "Run",
-    "Python.Registro.executor": "Run",
-    "Python.Scrollbar_Slider.executor": "Run",
-    "Python.intro_custom_tkinter.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/TAP_maniana"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CRadio_Checkbox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.C_prueba.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Contenedores.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkProgressbar.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkScrollableFrame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkTabview.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkTabview_withoutclass.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Login_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Radio_CheckBox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Registro.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Scrollbar_Slider.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Smtplib.executor&quot;: &quot;Run&quot;,
+    &quot;Python.intro_custom_tkinter.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/TAP_maniana&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python.CtkScrollableFrame">
+}</component>
+  <component name="RunManager" selected="Python.Smtplib">
     <configuration name="CtkProgressbar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
@@ -98,7 +96,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="CtkTabview" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Login" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,7 +109,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema2/CtkTabview.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -120,7 +118,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="CtkTabview_withoutclass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Registro" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,7 +131,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema2/CtkTabview_withoutclass.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema2/Registro.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,7 +140,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Scrollbar_Slider" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Smtplib" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,7 +153,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema2/Scrollbar_Slider.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema2/Smtplib.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Smtplib" />
+        <item itemvalue="Python.Login" />
+        <item itemvalue="Python.Registro" />
         <item itemvalue="Python.CtkScrollableFrame" />
         <item itemvalue="Python.CtkProgressbar" />
-        <item itemvalue="Python.CtkTabview" />
-        <item itemvalue="Python.CtkTabview_withoutclass" />
-        <item itemvalue="Python.Scrollbar_Slider" />
       </list>
     </recent_temporary>
   </component>

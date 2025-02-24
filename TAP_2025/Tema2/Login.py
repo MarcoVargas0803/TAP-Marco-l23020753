@@ -86,11 +86,11 @@ class Login:
         entrada_contra.pack(padx=20, pady=5, fill="x", expand=True)
 
     def button_creation(self):
-        login_botton = ct.CTkButton(self.f3, text=self.text_entry_button_login, fg_color="white", text_color="black", hover_color="grey",
+        login_botton = ct.CTkButton(self.f3, text=self.text_entry_button_login, fg_color="white", text_color="black", hover_color="green",
                                     command=self.submit)
         login_botton.pack(padx=5, pady=5, side="left")
 
-        cancel_botton = ct.CTkButton(self.f3, text=self.text_entry_button_cancel, fg_color="white", text_color="black", hover_color="grey",command=self.app.destroy)
+        cancel_botton = ct.CTkButton(self.f3, text=self.text_entry_button_cancel, fg_color="white", text_color="black", hover_color="red",command=self.app.destroy)
         cancel_botton.pack(padx=5, pady=5, side="left")
     def checkbox_creation(self):
         checkbox4_1 = ct.CTkCheckBox(self.f4, text="Recordarme", variable=self.check_var1)
@@ -152,7 +152,7 @@ class Login:
         self.entry_creation()
         self.button_creation()
         self.checkbox_creation()
-        self.scrollbar_function_c()
+        #self.scrollbar_function_c()
         self.app.mainloop()
 
 ventana1 = Login("user","password","login","quit",user_image_path="usuario.png")
