@@ -71,4 +71,5 @@ def submit_login():
 button_login1 = ct.CTkButton(app,text_color="black",fg_color="gray",hover_color="green",corner_radius=6,width=175,height=50,command=submit_login).grid(row=3,column=0)
 
 image_label.bind("<Double-Button-1>",image_message)
+
 app.mainloop()
