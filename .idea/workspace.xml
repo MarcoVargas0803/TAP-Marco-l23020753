@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d7b809-df45-44a5-8411-f9c9439bb49b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/login_logo_dark_mode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/login_logo_light_mode.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,29 +28,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CRadio_Checkbox.executor": "Run",
-    "Python.C_prueba.executor": "Run",
-    "Python.Contenedores.executor": "Run",
-    "Python.CtkProgressbar.executor": "Run",
-    "Python.CtkScrollableFrame.executor": "Run",
-    "Python.CtkTabview.executor": "Run",
-    "Python.CtkTabview_withoutclass.executor": "Run",
-    "Python.Exercise_1.executor": "Run",
-    "Python.Login.executor": "Run",
-    "Python.Login_c.executor": "Run",
-    "Python.Radio_CheckBox.executor": "Run",
-    "Python.Registro.executor": "Run",
-    "Python.Scrollbar_Slider.executor": "Run",
-    "Python.Smtplib.executor": "Run",
-    "Python.intro_custom_tkinter.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/TAP_maniana"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CRadio_Checkbox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.C_prueba.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Contenedores.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkProgressbar.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkScrollableFrame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkTabview.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkTabview_withoutclass.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Exercise_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Login_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Radio_CheckBox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Registro.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Scrollbar_Slider.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Smtplib.executor&quot;: &quot;Run&quot;,
+    &quot;Python.intro_custom_tkinter.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/TAP_maniana&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.Exercise_1">
     <configuration name="CtkScrollableFrame" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />

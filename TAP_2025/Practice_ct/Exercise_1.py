@@ -11,8 +11,6 @@ para enviar correo por smtplib.
 Tercer desarrollo:
 Aplicar de los principios de SOLID
 """
-import os.path
-from tkinter import StringVar
 
 import customtkinter as ct
 from PIL import Image
@@ -46,31 +44,31 @@ image_login = ct.CTkImage(light_image=Image.open("login_logo_dark_mode.png"),
 
 image_label = ct.CTkLabel(app,image=image_login,text="")
 image_label.grid(row=0,column=0,padx=5)
-"""
-    Input line code for image later
-"""
+
+def image_message(e):
+    print("Estas viendo la imagen")
 
 #Entry
 
-entry_user = ct.CTkEntry(app,text_color="white",placeholder_text="user name").grid(row=1,column=0,sticky="ew",padx=10)
+entry_user = ct.CTkEntry(app,text_color="white",placeholder_text="user name")
+entry_user.grid(row=1,column=0,sticky="ew",padx=10)
 
-entry_password = ct.CTkEntry(app,text_color="white",placeholder_text="password").grid(row=2,column=0,sticky="ew",padx=10)
+entry_password = ct.CTkEntry(app,text_color="white",placeholder_text="password")
+entry_password.grid(row=2,column=0,sticky="ew",padx=10)
 
 #Button
 
-button_login1 = ct.CTkButton(app,text_color="black",fg_color="gray",hover_color="green",corner_radius=6,width=175,height=50).grid(row=3,column=0)
-
-entry_user_variable = StringVar(entry_user)
-entry_password_variable = StringVar(entry_password)
 
 def submit_login():
-    user = entry_user_variable.get()
-    password = entry_password_variable.get()
+    user = entry_user.get()
+    password = entry_password.get()
+
 
     print("user: ",user)
     print("password:",password)
 
 
+button_login1 = ct.CTkButton(app,text_color="black",fg_color="gray",hover_color="green",corner_radius=6,width=175,height=50,command=submit_login).grid(row=3,column=0)
 
-
+image_label.bind("<Double-Button-1>",image_message)
 app.mainloop()
