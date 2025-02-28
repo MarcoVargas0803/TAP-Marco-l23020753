@@ -1,0 +1,20 @@
+{
+    "Marco": {
+        "nombre": "Marco",
+        "apellido": "Vargas",
+        "email": "marcocontacto0803@gmal.com",
+        "password": "1234"
+    },
+    "valentina": {
+        "nombre": "Valentina",
+        "apellido": "Vargas Valle",
+        "email": "valentinavargas@gmail.com",
+        "password": "12345"
+    },
+    "Paco": {
+        "nombre": "Paco",
+        "apellido": "Diaz",
+        "email": "pacodiaz@gmail.com",
+        "password": "1234"
+    }
+}
