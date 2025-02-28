@@ -3,6 +3,7 @@ from PIL import Image
 import json
 import os
 from Excercise_250225_register import Registro
+from MainApp import MainApp
 
 class LoginApp(ct.CTk):
     def __init__(self):
@@ -18,7 +19,7 @@ class LoginApp(ct.CTk):
         ct.set_default_color_theme("blue")
 
         # Cargar usuarios desde el archivo JSON
-        self.usuarios = self.cargar_usuarios()
+        self.usuarios = Registro.users
 
         self.configure_grid()
         self.create_widgets()
@@ -31,15 +32,15 @@ class LoginApp(ct.CTk):
         # Imagen de logo con manejo de errores
         try:
             self.image_login = ct.CTkImage(
-                light_image=Image.open("usuario.png"),
+                light_image=Image.open(f"usuario.png"),
                 dark_image=Image.open("usuario.png"),
                 size=(200, 200)
             )
         except FileNotFoundError:
-            print("Imagen 'login_logo_dark_mode.png' no encontrada.")
+            print("Imagen 'usuario.png' no encontrada.")
             self.image_login = None
 
-        self.image_label = ct.CTkLabel(self, image=self.image_login, text="") if self.image_login else ct.CTkLabel(self, text="No Image")
+        self.image_label = ct.CTkLabel(self, image=self.image_login, text="") if self.image_login else ct.CTkLabel(self, text="Sin imagen")
         self.image_label.grid(row=0, column=0, padx=5)
 
         # Entradas de usuario y contraseña
@@ -94,6 +95,7 @@ class LoginApp(ct.CTk):
 
     def on_focus_in_password(self, event):
         self.entry_password.configure(text_color="white")
+        self.error_label.configure(text="",fg_color="transparent")
 
     def on_focus_out_password(self, event):
         self.entry_password.configure(text_color="gray")
@@ -113,53 +115,25 @@ class LoginApp(ct.CTk):
         user = self.entry_user.get()
         password = self.entry_password.get()
 
-        if not self.usuarios:  # Si no hay usuarios registrados
-            print("No hay usuarios registrados.")
+        # Verificar si hay usuarios registrados
+        if not Registro.users:
+            self.on_log_error_entry("No hay usuarios registrados", "white", "#f04735")
             return
 
-        if user in self.usuarios and self.usuarios[user]["password"] == password:
-            self.open_main_window()
-        else:
-            self.on_log_error_entry("Usuario y contraseña incorrectos","white",fg_color="#f04735")
-
-
-    def guardar_usuarios(self):
-        """Guarda los usuarios en un archivo JSON."""
-        with open("usuarios.json", "w") as file:
-            json.dump(self.usuarios, file, indent=4)
-
-    def cargar_usuarios(self):
-        """Carga los usuarios desde un archivo JSON."""
-        if os.path.exists("usuarios.json"):
-            with open("usuarios.json", "r") as file:
-                try:
-                    return json.load(file)
-                except json.JSONDecodeError:
-                    print("Error al leer 'usuarios.json'. El archivo podría estar corrupto.")
-                    return {}
-        return {}  # Si el archivo no existe, devuelve un diccionario vacío
+        # Buscar el usuario en la lista
+        for u in Registro.users:
+            if u["usuario"] == user and u["password"] == password:
+                self.open_main_window()
+                return
+        self.on_log_error_entry("Usuario y/o contraseña incorrectos", "white", "#f04735",)
 
     def open_main_window(self):
         self.destroy()  # Cierra la ventana actual
         main = MainApp()  # Crea la nueva ventana
         main.mainloop()  # Ejecuta la ventana principal
 
-    def image_message(self, event):
-        print("Estás viendo la imagen")
 
-
-class MainApp(ct.CTk):
-    def __init__(self):
-        super().__init__()
-        self.geometry("400x400")
-        self.title("Main Window")
-
-        self.label = ct.CTkLabel(self, text="Bienvenido al sistema", font=("Arial", 18))
-        self.label.pack(pady=20)
-
-
-if __name__ == "__main__":
-    app = LoginApp()
-    app.mainloop()
+app = LoginApp()
+app.mainloop()
 
 
