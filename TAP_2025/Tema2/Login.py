@@ -19,7 +19,6 @@ class Login:
         self.user_image_path = user_image_path
 
         self.check_var1 = ct.IntVar()
-
         self.app.title("Login")
 
         # Tamaño y configuración de la ventana

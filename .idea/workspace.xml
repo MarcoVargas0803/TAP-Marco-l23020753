@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d7b809-df45-44a5-8411-f9c9439bb49b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/MainApp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Persona.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/MiPrimeraBD.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/Practica2_BD.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Excercise_250225_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Excercise_250225_register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_250225.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_250225.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_250225_verification.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Test_C.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/login_logo_light_mode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/prueba_register.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/usuarios.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/PyCharmMiscProject/.venv/Lib/site-packages/customtkinter/windows/ctk_tk.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -36,41 +33,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CRadio_Checkbox.executor": "Run",
-    "Python.C_prueba.executor": "Run",
-    "Python.Contenedores.executor": "Run",
-    "Python.CtkProgressbar.executor": "Run",
-    "Python.CtkScrollableFrame.executor": "Run",
-    "Python.CtkTabview.executor": "Run",
-    "Python.CtkTabview_withoutclass.executor": "Run",
-    "Python.Excercise_250225_register.executor": "Run",
-    "Python.Exercise_1.executor": "Run",
-    "Python.Exercise_250225.executor": "Run",
-    "Python.Login.executor": "Run",
-    "Python.Login_c.executor": "Run",
-    "Python.Persona.executor": "Run",
-    "Python.Radio_CheckBox.executor": "Run",
-    "Python.Registro.executor": "Run",
-    "Python.Scrollbar_Slider.executor": "Run",
-    "Python.Smtplib.executor": "Run",
-    "Python.Test_C.executor": "Run",
-    "Python.Test_register.executor": "Run",
-    "Python.intro_custom_tkinter.executor": "Run",
-    "Python.prueba_register.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/TAP_maniana/TAP_2025/Practice_ct"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CRadio_Checkbox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.C_prueba.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Contenedores.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkProgressbar.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkScrollableFrame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkTabview.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CtkTabview_withoutclass.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Excercise_250225_register.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Exercise_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Exercise_250225.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Login_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MiPrimeraBD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Persona.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Practica2_BD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Radio_CheckBox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Registro.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Scrollbar_Slider.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Smtplib.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Test_C.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Test_register.executor&quot;: &quot;Run&quot;,
+    &quot;Python.intro_custom_tkinter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.prueba_register.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/TAP_maniana/TAP_2025/Practice_ct&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\TAP_maniana\TAP_2025\Practice_ct" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Exercise_250225">
+  <component name="RunManager" selected="Python.Practica2_BD">
     <configuration name="Excercise_250225_register" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
@@ -115,7 +115,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Persona" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="MiPrimeraBD" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,11 +124,33 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Practice_ct" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Tema3_BD" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Practice_ct/Persona.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema3_BD/MiPrimeraBD.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Practica2_BD" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TAP_maniana" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Tema3_BD" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema3_BD/Practica2_BD.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,35 +181,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test_register" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TAP_maniana" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Practice_ct" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Practice_ct/Test_register.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Practica2_BD" />
+        <item itemvalue="Python.MiPrimeraBD" />
         <item itemvalue="Python.Exercise_250225" />
         <item itemvalue="Python.Excercise_250225_register" />
         <item itemvalue="Python.Test_C" />
-        <item itemvalue="Python.Test_register" />
-        <item itemvalue="Python.Persona" />
       </list>
     </recent_temporary>
   </component>
