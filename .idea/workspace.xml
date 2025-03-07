@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d7b809-df45-44a5-8411-f9c9439bb49b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/MiPrimeraBD.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/Practica2_BD.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Actividad060325/Formulario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/FotografiaUV.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/animate_c.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/label_c.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/loading_screen_c.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/try_c.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/db_script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/login.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/mainApp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Excercise_250225_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Excercise_250225_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_250225.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_250225.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +54,7 @@
     &quot;Python.Excercise_250225_register.executor&quot;: &quot;Run&quot;,
     &quot;Python.Exercise_1.executor&quot;: &quot;Run&quot;,
     &quot;Python.Exercise_250225.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Formulario.executor&quot;: &quot;Run&quot;,
     &quot;Python.Login.executor&quot;: &quot;Run&quot;,
     &quot;Python.Login_c.executor&quot;: &quot;Run&quot;,
     &quot;Python.MiPrimeraBD.executor&quot;: &quot;Run&quot;,
@@ -56,8 +66,15 @@
     &quot;Python.Smtplib.executor&quot;: &quot;Run&quot;,
     &quot;Python.Test_C.executor&quot;: &quot;Run&quot;,
     &quot;Python.Test_register.executor&quot;: &quot;Run&quot;,
+    &quot;Python.animate_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db_script.executor&quot;: &quot;Run&quot;,
     &quot;Python.intro_custom_tkinter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.label_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loading_screen_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.login.executor&quot;: &quot;Run&quot;,
     &quot;Python.prueba_register.executor&quot;: &quot;Run&quot;,
+    &quot;Python.register.executor&quot;: &quot;Run&quot;,
+    &quot;Python.try_c.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -68,9 +85,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\TAP_maniana\TAP_2025\Practice_ct" />
+      <recent name="C:\TAP_maniana\TAP_2025\Tema3_BD" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Practica2_BD">
+  <component name="RunManager" selected="Python.register">
     <configuration name="Excercise_250225_register" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
@@ -115,51 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MiPrimeraBD" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TAP_maniana" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Tema3_BD" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema3_BD/MiPrimeraBD.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Practica2_BD" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="TAP_maniana" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Tema3_BD" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema3_BD/Practica2_BD.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test_C" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="animate_c" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -172,7 +146,51 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Practice_ct/Test_C.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Practice_ct/animate_c.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="loading_screen_c" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TAP_maniana" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Practice_ct" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Practice_ct/loading_screen_c.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="register" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TAP_maniana" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Tema3_BD" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema3_BD/register.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Practica2_BD" />
-        <item itemvalue="Python.MiPrimeraBD" />
+        <item itemvalue="Python.register" />
         <item itemvalue="Python.Exercise_250225" />
         <item itemvalue="Python.Excercise_250225_register" />
-        <item itemvalue="Python.Test_C" />
+        <item itemvalue="Python.animate_c" />
+        <item itemvalue="Python.loading_screen_c" />
       </list>
     </recent_temporary>
   </component>
@@ -208,5 +226,32 @@
       <updated>1739741484422</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAP_2025/Tema2/Login.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAP_2025/Tema3_BD/db_script.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
