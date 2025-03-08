@@ -1,5 +1,4 @@
 import customtkinter as ct
-from db_script_c import DataBase
 
 class Registro(ct.CTk):
     users = [
@@ -7,7 +6,6 @@ class Registro(ct.CTk):
     ]
     def __init__(self):
         super().__init__()
-        self.db = DataBase()
 
         self.title("Registro")
         self.geometry("600x450")
