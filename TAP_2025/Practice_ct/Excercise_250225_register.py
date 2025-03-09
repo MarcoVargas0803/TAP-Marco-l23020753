@@ -1,16 +1,15 @@
 import customtkinter as ct
+from PIL import Image, ImageTk
 from db_script_c import DataBase
+from tkinter import filedialog
 
 class Registro(ct.CTk):
-    users = [
-        {"usuario": "admin", "password": "1234"}
-    ]
     def __init__(self):
         super().__init__()
         self.db = DataBase()
 
         self.title("Registro")
-        self.geometry("600x450")
+        self.geometry("800x650")
         self.resizable(False, False)
 
         self.configurar_grid()
@@ -52,7 +51,6 @@ class Registro(ct.CTk):
         ct.CTkLabel(self.f6, text="Usuario:", text_color="White").pack(side="left", padx=10, pady=10)
         ct.CTkLabel(self.titulo, text=" " , text_color="White", font=("Helvetica", 10)).pack(padx=10, pady=10,side="right")
 
-
         # Entradas de texto
         self.entrada_nombre = ct.CTkEntry(self.f1,placeholder_text="Fulanito Alberto",width=400)
         self.entrada_nombre.pack(padx=20, pady=5, side="right")
@@ -72,6 +70,21 @@ class Registro(ct.CTk):
 
         self.entrada_usuario = ct.CTkEntry(self.f6,placeholder_text="Juanito1",width=400)
         self.entrada_usuario.pack(padx=20, pady=5, side="right")
+
+        #Photo implement
+
+        try:
+            self.foto_login = ct.CTkImage(
+                light_image=Image.open(f"usuario.png"),
+                dark_image=Image.open(f"usuario.png"),
+                size=(100, 100)
+            )
+        except FileNotFoundError:
+            print("Imagen no encontrada.")
+            self.foto_login = None
+
+        self.image_label = ct.CTkLabel(self.titulo, image=self.foto_login, text="") if self.foto_login else ct.CTkLabel(self, text="Sin imagen")
+        self.image_label.pack(padx=5,pady=15,side="right")
 
         self.error_label = ct.CTkLabel(self.titulo,text=" ",font=("Helvetica",15),corner_radius=20)
         self.error_label.pack(side="right",padx=10,pady=10)
@@ -99,6 +112,13 @@ class Registro(ct.CTk):
         self.entrada_verify_password.bind("<FocusOut>", self.on_focus_out_password_v)
         self.entrada_usuario.bind("<FocusIn>", self.on_focus_in_user)
         self.entrada_usuario.bind("<FocusOut>", self.on_focus_out_user)
+
+        #Photo
+        self.image_label.bind("<Double-Button-1>",self.update_profile_picture)
+
+
+
+        #Bind photo implement
 
         self.bind("<Return>", self.registrar_usuario_e)
         self.bind("<Shift_L>", self.on_show_in_password)
@@ -194,18 +214,41 @@ class Registro(ct.CTk):
         self.registro_win = Registro()
         self.registro_win.mainloop()
 
+
+    def update_profile_picture(self, event):
+        # Abrir explorador de archivos
+        file_path = filedialog.askopenfilename(filetypes=[("Imágenes", "*.png")])
+        self.foto_path = file_path #Guardar variable en clase para ser implementada en db
+
+        if not file_path:
+            return  # Si el usuario cancela, no hacer nada
+
+        # Cargar la nueva imagen con PIL
+        image = Image.open(file_path).resize((200, 200))  # Ajusta el tamaño según sea necesario
+        self.foto_login_act = ct.CTkImage(light_image=image, dark_image=image, size=(100, 100))
+
+        # Actualizar la imagen en el Label
+        self.image_label.configure(image=self.foto_login_act)
+        self.error_label.configure(text=f"Imagen Actualizada",text_color="black",fg_color="green")
+        self.after(2000,self.hide_label)
+
+
     def validar_usuario(self, event):
         """Verificar en tiempo real si el usuario existe."""
         user = self.entrada_usuario.get()
-        if any(u["usuario"] == user for u in Registro.users):
+        if any(u == user for u in self.db.get_users()):
             self.error_label.configure(text="Usuario encontrado", text_color="white",fg_color="green")
         else:
             self.error_label.configure(text="Usuario no existe", text_color="white",fg_color="#f04735")
 
     def registrar_usuario(self):
-        usuario = self.entrada_usuario.get()
+        nombre = self.entrada_nombre.get()
+        apellido = self.entrada_apellido.get()
         password = self.entrada_password.get()
+        email = self.entrada_email.get()
+        usuario = self.entrada_usuario.get()
         verify_password = self.entrada_verify_password.get()
+        foto_pefil = self.foto_path
 
         # Validaciones
         if not usuario or not password or not verify_password:
@@ -218,22 +261,25 @@ class Registro(ct.CTk):
             return
 
         # Verificar si el usuario ya existe
-        for u in Registro.users:
-            if u["usuario"] == usuario:
+        for u in self.db.get_users():
+            if self.db.user_exists(u) == usuario:
                 self.on_log_error_entry(message="El usuario ya existe.")
                 self.after(1500, self.hide_label)
                 return
 
-        # Agregar usuario a la lista
-        Registro.users.append({"usuario": usuario, "password": password})
-        #self.after(2000,self.on_log_error_entry,show_loading_bar)
+        # Agregar usuario a la base de datos
+        self.db.insert_user(nombre,apellido,email,usuario,password,foto=foto_pefil)
         self.on_log_error_entry(message=f" usuario {usuario} registrado correctamente.",fg_color="#5ccc58")
         self.start_loading()  # Cierra la ventana de registro
 
     def registrar_usuario_e(self, event):
-        usuario = self.entrada_usuario.get()
+        nombre = self.entrada_nombre.get()
+        apellido = self.entrada_apellido.get()
         password = self.entrada_password.get()
+        email = self.entrada_email.get()
+        usuario = self.entrada_usuario.get()
         verify_password = self.entrada_verify_password.get()
+        foto_pefil = self.foto_path
 
         # Validaciones
         if not usuario or not password or not verify_password:
@@ -246,14 +292,17 @@ class Registro(ct.CTk):
             return
 
         # Verificar si el usuario ya existe
-        for u in Registro.users:
-            if u["usuario"] == usuario:
+        for u in self.db.get_users():
+            if self.db.get_users(u) == usuario:
                 self.on_log_error_entry(message="El usuario ya existe.")
                 self.after(1500, self.hide_label)
                 return
 
         # Agregar usuario a la lista
-        Registro.users.append({"usuario": usuario, "password": password})
+        self.db.insert_user(nombre,apellido,email,usuario,password,foto_pefil)
         #self.after(2000,self.on_log_error_entry,show_loading_bar)
         self.on_log_error_entry(message=f" usuario {usuario} registrado correctamente.",fg_color="#5ccc58",text_color="black")
         self.start_loading()  # Cierra la ventana de registro
+
+r_test = Registro()
+r_test.mainloop()

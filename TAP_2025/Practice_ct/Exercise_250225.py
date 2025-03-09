@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 from tkinter import filedialog
 from Excercise_250225_register import Registro
 from MainApp import MainApp
+from db_script_c import DataBase
 
 class LoginApp(ct.CTk):
     def __init__(self):
@@ -17,8 +18,9 @@ class LoginApp(ct.CTk):
         ct.set_appearance_mode("System")
         ct.set_default_color_theme("blue")
 
-        # Cargar usuarios desde el archivo JSON
-        self.usuarios = Registro.users
+        #Cargar usuarios de la base de datos
+
+        db = DataBase()
 
         self.configure_grid()
         self.create_widgets()

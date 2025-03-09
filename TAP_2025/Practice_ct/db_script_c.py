@@ -2,20 +2,21 @@ import sqlite3
 from datetime import datetime
 
 class DataBase:
-    db_name = "Users.db"
+    db_name = "Register_user.db"
 
     def __init__(self):
         try:
             conexion = sqlite3.connect(self.db_name)
             sqlintruction = """
-            CREATE TABLE IF NOT EXISTS users (
+            CREATE TABLE IF NOT EXISTS users(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nombre TEXT NOT NULL,
                 apellido TEXT NOT NULL,
                 email TEXT UNIQUE NOT NULL,
                 usuario TEXT UNIQUE NOT NULL,
                 password TEXT NOT NULL,
-                fecha_registro TEXT NOT NULL
+                fecha_registro TEXT NOT NULL,
+                foto_perfil TEXT NOT NULL
             )
             """
             conexion.execute(sqlintruction)
@@ -24,13 +25,13 @@ class DataBase:
         except Exception as e:
             print(f"Error al inicializar la base de datos: {e}")
 
-    def insert_user(self, nombre, apellido, email, usuario, password):
+    def insert_user(self, nombre, apellido, email, usuario, password, foto):
         try:
             fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            query = "INSERT INTO users (nombre, apellido, email, usuario, password, fecha_registro) VALUES (?, ?, ?, ?, ?, ?)"
+            query = "INSERT INTO users(nombre, apellido, email, usuario, password, fecha_registro, foto_perfil) VALUES (?, ?, ?, ?, ?, ?, ?)"
             conexion = sqlite3.connect(self.db_name)
             cursor = conexion.cursor()
-            cursor.execute(query, (nombre, apellido, email, usuario, password, fecha))
+            cursor.execute(query, (nombre, apellido, email, usuario, password, fecha, foto))
             conexion.commit()
             conexion.close()
             return True
@@ -45,7 +46,7 @@ class DataBase:
         try:
             conexion = sqlite3.connect(self.db_name)
             cursor = conexion.cursor()
-            cursor.execute("SELECT id, nombre, apellido, email, usuario, fecha_registro FROM users")
+            cursor.execute("SELECT id, nombre, apellido, email, usuario, fecha_registro, foto_perfil FROM users")
             usuarios = cursor.fetchall()
             conexion.close()
             return usuarios
@@ -76,3 +77,15 @@ class DataBase:
         except Exception as e:
             print(f"Error al validar usuario: {e}")
             return False
+
+    def get_photo(self,usuario):
+        try:
+            conexion = sqlite3.connect(self.db_name)
+            cursor = conexion.cursor()
+            cursor.execute("SELECT foto_perfil FROM users WHERE usuario = ? ",(usuario,))
+            foto_perfil = cursor.fetchone()
+            conexion.close()
+            return foto_perfil
+        except Exception as e:
+            print(f"Error al obtener foto: {e}")
+            return []
