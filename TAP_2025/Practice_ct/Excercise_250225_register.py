@@ -303,6 +303,3 @@ class Registro(ct.CTk):
         #self.after(2000,self.on_log_error_entry,show_loading_bar)
         self.on_log_error_entry(message=f" usuario {usuario} registrado correctamente.",fg_color="#5ccc58",text_color="black")
         self.start_loading()  # Cierra la ventana de registro
-
-r_test = Registro()
-r_test.mainloop()

@@ -1,19 +1,12 @@
 from tkinter import *
+from tkinter import messagebox
 from tkinter.ttk import Treeview
 from db_script import DataBase
-
+from datetime import datetime
 import customtkinter as ct
 
 
 class ControlMto(ct.CTk):
-
-    """
-    users = [("paquito", "paquito123"),
-                ("tribilin", "tribilin123"),
-                ("elbryan", "elbryan123"),
-                ("mariacarey", "mariacarey123")
-                ]
-    """
 
 
     def __init__(self):
@@ -68,30 +61,31 @@ class ControlMto(ct.CTk):
         self.entrada_fecha = ct.CTkEntry(self.f2, placeholder_text="07/03/25", width=400)
         self.entrada_fecha.pack(padx=20, pady=5, side="right")
 
-        self.entrada_pago = ct.CTkEntry(self.f3, placeholder_text="1023", width=400)
+        self.entrada_clave = ct.CTkEntry(self.f3, placeholder_text="OP001", show="", width=400)
+        self.entrada_clave.pack(padx=20, pady=5, side="right")
+
+
+        self.entrada_pago = ct.CTkEntry(self.f4, placeholder_text="$5000", width=400)
         self.entrada_pago.pack(padx=20, pady=5, side="right")
 
-        self.entrada_password = ct.CTkEntry(self.f4,placeholder_text="Juanito123@", show="*",width=400)
-        self.entrada_password.pack(padx=20, pady=5, side="right")
+
 
         #Buttons en f6
 
-        self.button_send = ct.CTkButton(self.f5,)
+        self.button_send = ct.CTkButton(self.f5,text="Enviar",command=self.registrar_usuario,fg_color="#616362",hover_color="#84d658",text_color="black")
         self.button_send.pack(padx=10,pady=5,side="right")
 
-        self.button_cancel = ct.CTkButton(self.f5)
+        self.button_cancel = ct.CTkButton(self.f5,text="Cancelar",command=self.cancel,fg_color="#616362",hover_color="#d65858",text_color="black")
         self.button_cancel.pack(padx=10,pady=5,side="right")
 
-        #self.entrada_usuario = ct.CTkEntry(self.f6,placeholder_text="Juanito1",width=400)
-        #self.entrada_usuario.pack(padx=20, pady=5, side="right")
+        self.btn_modificar = ct.CTkButton(self.f5, text="Modificar", command=self.modificar_registro,fg_color="#616362",hover_color="#405c7c",text_color="black")
+        self.btn_modificar.pack(padx=10, pady=5, side="right")
+
+        self.btn_eliminar = ct.CTkButton(self.f5, text="Eliminar", command=self.eliminar_registro,fg_color="#616362",hover_color="#5c3a3f",text_color="black")
+        self.btn_eliminar.pack(padx=10, pady=5, side="right")
 
         self.error_label = ct.CTkLabel(self.titulo,text=" ",font=("Helvetica",15),corner_radius=20)
         self.error_label.pack(side="right",padx=10,pady=10)
-
-
-        # Botón de Registro
-        self.boton_registrar = ct.CTkButton(self.f7, text="Registrar", command=self.registrar_usuario,fg_color="gray",hover_color="#438713",text_color="black")
-        self.boton_registrar.pack(pady=10)
 
         # Barra de progreso (oculta al inicio)
         self.progress = ct.CTkProgressBar(self)
@@ -100,15 +94,20 @@ class ControlMto(ct.CTk):
 
         # Style=Style()
 
-        self.tv = Treeview(self.f6, columns=("Columna1", "Columna2"))
+        self.tv = Treeview(self.f6, columns=("Columna1", "Columna2","Columna3","Columna4"))
         # Style.configure("Treeview",rowheight=40)
         self.tv.heading("#0", text="No.")
-        self.tv.heading("Columna1", text="Usuario")
-        self.tv.heading("Columna2", text="Password")
-        self.tv.column("#0", width=5, minwidth=5, stretch=True)
+        self.tv.heading("Columna1", text="Nombre")
+        self.tv.heading("Columna2", text="Fecha")
+        self.tv.heading("Columna3", text="Clave")
+        self.tv.heading("Columna4", text="Pago")
+
+        #Column tv configure
+        self.tv.column("#0", width=2, minwidth=2, stretch=True)
+
         # tv.configure()
-        self.tv.tag_configure('par', background='lightyellow', font=("Arial", 15))
-        self.tv.tag_configure('impar', background='lightgreen', font=("Arial", 15), foreground="blue")
+        self.tv.tag_configure('par', background='#302c2c', font=("Arial", 15),foreground="#4e585d")
+        self.tv.tag_configure('impar', background='#28241c', font=("Arial", 15), foreground="#4e585d")
 
         self.tv.pack(side="top", fill="x", padx=5, pady=5)
         self.llenarTreeview()
@@ -116,20 +115,75 @@ class ControlMto(ct.CTk):
         # Eventos bind
         self.entrada_nombre.bind("<FocusIn>", self.on_focus_in_name)
         self.entrada_nombre.bind("<FocusOut>", self.on_focus_out_name)
-        self.entrada_fecha.bind("<FocusIn>", self.on_focus_in_lastname)
-        self.entrada_fecha.bind("<FocusOut>", self.on_focus_out_lastname)
+        self.entrada_fecha.bind("<FocusIn>", self.on_focus_in_fecha)
+        self.entrada_fecha.bind("<FocusOut>", self.on_focus_out_fecha)
         self.entrada_pago.bind("<FocusIn>", self.on_focus_in_email)
         self.entrada_pago.bind("<FocusOut>", self.on_focus_out_email)
-        self.entrada_password.bind("<FocusIn>", self.on_focus_in_password)
-        self.entrada_password.bind("<FocusOut>", self.on_focus_out_password)
+        self.entrada_clave.bind("<FocusIn>", self.on_focus_in_password)
+        self.entrada_clave.bind("<FocusOut>", self.on_focus_out_password)
 
-
-        #self.bind("<Return>", self.registrar_)
+        self.bind("<Return>", self.registrar_usuario)
         self.bind("<Shift_L>", self.on_show_in_password)
         self.bind("<Shift_R>", self.on_show_in_password)
 
+        self.entrada_nombre.bind("<KeyRelease>",self.validar_usuario)
+
         self.bind("<KeyRelease-Shift_L>", self.on_show_out_password)
         self.bind("<KeyRelease-Shift_R>", self.on_show_out_password)
+
+        self.tv.bind("<ButtonRelease-1>", self.seleccionar_registro)
+
+        self.bind("<Control-Return>",self.modificar_registro)
+
+        # Configurar evento para el árbol (seleccionar fila)
+        self.tv.bind("<<TreeviewSelect>>", self.on_item_select)
+
+        # Configurar el evento para la tecla Supr
+        self.bind("<Delete>", self.delete_record)
+
+        self.selected_item = None
+
+    def on_item_select(self, event):
+        # Obtener el registro seleccionado
+        selected_items = self.tv.selection()
+        if selected_items:
+            self.selected_item = selected_items[0]  # Guardamos el ID del item seleccionado
+
+    def delete_record(self, event):
+        # Verificar si hay un item seleccionado
+        if self.selected_item:
+            # Confirmar la eliminación
+            confirm = messagebox.askyesno("Confirmación", "¿Estás seguro de eliminar este registro?")
+            if confirm:
+                # Eliminar el item
+                self.tv.delete(self.selected_item)
+                self.selected_item = None  # Restablecer la selección
+                self.on_log_error_entry(message="Registro eliminado exitosamente")
+        else:
+            messagebox.showwarning("Advertencia", "Selecciona un registro primero.")
+
+    def actualizar_treeview(self):
+        for item in self.tv.get_children():
+            self.tv.delete(item)
+
+        users = self.db1.obtain_users()
+        for index, item in enumerate(users, start=1):
+            tag = "par" if index % 2 == 0 else "impar"
+            self.tv.insert("", "end", text=index, values=(item[0], item[1], item[2], item[3]), tags=(tag,))
+        self.progress.set(0)
+
+
+    def cancel(self, event=None):
+        self.entrada_nombre.delete(0, "end")
+
+        self.entrada_fecha.delete(0, "end")
+
+        self.entrada_clave.delete(0, "end")
+
+        self.entrada_pago.delete(0, "end")
+
+        self.on_log_error_entry(message="Registro actual cancelado")
+        self.after(1500, self.hide_label)
 
     def llenarTreeview(self):
         users = self.db1.obtain_users()
@@ -137,16 +191,72 @@ class ControlMto(ct.CTk):
         for item in users:
             contador += 1
             if contador % 2 == 0:
-                self.tv.insert("", END, text=contador, values=(item[0], item[1]), tags=("par",))
+                self.tv.insert("", END, text=contador, values=(item[0], item[1], item[2],item[3]), tags=("par",))
             else:
-                self.tv.insert("", END, text=contador, values=(item[0], item[1]), tags=("impar",))
+                self.tv.insert("", END, text=contador, values=(item[0], item[1],item[2],item[3]), tags=("impar",))
         return
+
+    def seleccionar_registro(self, event):
+        """Selecciona un registro del Treeview y lo muestra en los Entry"""
+        item_seleccionado = self.tv.focus()  # Obtiene el ID del elemento seleccionado
+
+        if item_seleccionado:
+            valores = self.tv.item(item_seleccionado, "values")  # Obtiene los valores del registro
+            if valores:
+                self.entrada_nombre.delete(0, "end")
+                self.entrada_nombre.insert(0, valores[0])
+
+                self.entrada_fecha.delete(0, "end")
+                self.entrada_fecha.insert(0, valores[1])
+
+                self.entrada_clave.delete(0, "end")
+                self.entrada_clave.insert(0, valores[2])
+
+                self.entrada_pago.delete(0, "end")
+                self.entrada_pago.insert(0, valores[3])
+    def modificar_registro(self, event=None):
+        """Modifica un registro seleccionado en la base de datos y lo actualiza en el Treeview"""
+        item_seleccionado = self.tv.focus()
+
+        if item_seleccionado:
+            nuevo_nombre = self.entrada_nombre.get()
+            nueva_fecha = self.entrada_fecha.get()
+            nueva_clave = self.entrada_clave.get()
+            nuevo_pago = self.entrada_pago.get()
+
+            id_registro = self.tv.item(item_seleccionado, "text")  # Obtener el ID desde la columna #0
+
+            if id_registro:  # Verificar si el ID es válido
+                self.db1.refresh_table(id_registro, nuevo_nombre)  # Actualiza en la BD
+
+                self.tv.item(item_seleccionado, text=id_registro,
+                             values=(nuevo_nombre, nueva_fecha, nueva_clave, nuevo_pago))
+                self.on_log_error_entry(message="Registro modificado exitosamente")
+                self.after(1500, self.hide_label)
+
+            else:
+                self.on_log_error_entry(message="Error al modificar registro")
+                self.after(1500, self.hide_label)
+
+    def eliminar_registro(self):
+        """Elimina un registro seleccionado del Treeview y de la base de datos"""
+        item_seleccionado = self.tv.focus()
+
+        if item_seleccionado:
+            id_tree = self.tv.item(item_seleccionado, "text")
+            id_registro = id_tree
+
+            self.db1.eliminar_usuario(id_registro)  # Eliminar en la BD
+            self.tv.delete(item_seleccionado)  # Eliminar en el Treeview
+            self.on_log_error_entry(message="Registro eliminado exitosamente")
+            self.after(1500, self.hide_label)
+
 
     def start_loading(self):
         """Inicia la simulación de carga al iniciar sesión"""
-        self.boton_registrar.configure(state="disabled")  # Deshabilitar botón
         self.progress.set(0)  # Reiniciar barra de progreso
         self.update_progress(0)  # Iniciar progreso
+
 
     def update_progress(self, value):
         """Simula el progreso y carga la nueva ventana"""
@@ -155,10 +265,17 @@ class ControlMto(ct.CTk):
             self.progress.set(value)
             self.after(300, self.update_progress, value)  # Esperar 300ms y actualizar
         else:
-            self.destroy()  # Abrir nueva ventana al llegar a 100%
+            self.actualizar_treeview()  # Actualizar treeview
 
+    def on_focus_in_fecha(self, event):
+        fecha_actual = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.entrada_fecha.delete(0, "end")  # Elimina texto anterior
+        self.entrada_fecha.insert(0, fecha_actual)  # Inserta la fecha y hora actual
+        self.entrada_fecha.configure(text_color="white")
+        self.error_label.configure(text="Fecha del registro", fg_color="#9197a1", text_color="black")
+        self.after(1500, self.hide_label)
 
-    def on_log_error_entry(self,text_color="#d1cdcd",message="Todos los campos son obligatorios.",fg_color="#d94b43"):
+    def on_log_error_entry(self,text_color="white",message="Todos los campos son obligatorios.",fg_color="#d94b43"):
         self.error_label.configure(text=message,text_color=text_color,fg_color=fg_color,corner_radius=20)
 
     def hide_label(self):
@@ -173,39 +290,23 @@ class ControlMto(ct.CTk):
     def on_focus_out_name(self, e):
         self.entrada_nombre.configure(text_color="gray")
 
-    def on_focus_in_lastname(self, e):
-        self.entrada_fecha.configure(text_color="white")
-        self.error_label.configure(text=" 1er y 2ndo Apellido ",fg_color="#9197a1",text_color="black")
-        self.after(1500,self.hide_label)
-
-    def on_focus_out_lastname(self, e):
+    def on_focus_out_fecha(self, e):
         self.entrada_fecha.configure(text_color="gray")
 
     def on_focus_in_password(self, e):
-        self.entrada_password.configure(text_color="white")
+        self.entrada_clave.configure(text_color="white")
         self.error_label.configure(text=" Almenos un caracter especial ",fg_color="#9197a1",text_color="black")
         self.after(1500,self.hide_label)
 
 
     def on_focus_out_password(self, e):
-        self.entrada_password.configure(text_color="gray")
-
-    def on_focus_in_password_v(self, e):
-        self.entrada_verify_password.configure(text_color="white")
-        self.error_label.configure(text=" Verificar contraseña ",fg_color="#9197a1",text_color="black")
-        self.after(1500,self.hide_label)
-
-
-    def on_focus_out_password_v(self, e):
-        self.entrada_verify_password.configure(text_color="gray")
+        self.entrada_clave.configure(text_color="gray")
 
     def on_show_in_password(self,event):
-        self.entrada_password.configure(show="")
-        self.entrada_verify_password.configure(show="")
+        self.entrada_clave.configure(show="")
 
     def on_show_out_password(self,event):
-        self.entrada_password.configure(show="*")
-        self.entrada_verify_password.configure(show="*")
+        self.entrada_clave.configure(show="*")
 
     def on_focus_in_email(self, e):
         self.entrada_pago.configure(text_color="white")
@@ -216,116 +317,42 @@ class ControlMto(ct.CTk):
     def on_focus_out_email(self, e):
         self.entrada_pago.configure(text_color="gray")
 
-    def on_focus_in_user(self, e):
-        self.entrada_usuario.configure(text_color="gray")
-        self.error_label.configure(text=" Nombre de usuario ",fg_color="#9197a1",text_color="black")
-        self.after(1500,self.hide_label)
+    def validar_usuario(self, event=None):
+        #Verificar en tiempo real si el usuario existe.
+        user = self.entrada_nombre.get().strip()
 
-
-    def on_focus_out_user(self, e):
-        self.entrada_usuario.configure(text_color="gray")
-
-    def on_button_register(self, event):
-        self.registro_win = ControlMto()
-        self.registro_win.mainloop()
-
-    def validar_usuario(self, event):
-        """Verificar en tiempo real si el usuario existe."""
-        user = self.entrada_usuario.get()
-        if any(u["usuario"] == user for u in ControlMto.users):
-            self.error_label.configure(text="Usuario encontrado", text_color="white",fg_color="green")
+        usuarios = self.db1.obtain_users()
+        if any(user == u[0] for u in usuarios):
+            self.error_label.configure(text="Usuario ya registrado", text_color="white",fg_color="#f04735")
         else:
-            self.error_label.configure(text="Usuario no existe", text_color="white",fg_color="#f04735")
+            self.error_label.configure(text="Disponible para registrar", text_color="white",fg_color="green")
 
-    def registrar_usuario(self):
-        usuario = self.entrada_usuario.get()
-        password = self.entrada_password.get()
-        pago = self.entrada_pago()
-        verify_password = self.entrada_verify_password.get()
+
+    def registrar_usuario(self,event=None):
+        nombre = self.entrada_nombre.get()
+        clave = self.entrada_clave.get()
+        pago = self.entrada_pago.get()
+        fecha = self.entrada_fecha.get()
 
         # Validaciones
-        if not usuario or not password or not verify_password:
-            self.on_log_error_entry("Todos los campos son obligatorios.")
-            return
-
-        if password != verify_password:
-            self.on_log_error_entry("Las contraseñas no coinciden.", fg_color="#c9d134", text_color="black")
-            self.after(1500, self.hide_label)
+        if not nombre or not fecha or not clave or not pago:
+            self.on_log_error_entry(message="Todos los campos son obligatorios.")
             return
 
         # Verificar si el usuario ya existe en la base de datos
 
-        if self.db1.user_exists(usuario):
-            self.on_log_error_entry("El usuario ya existe.")
+        if self.db1.user_exists(nombre):
+            self.on_log_error_entry(message="El usuario ya existe.")
             self.after(1500, self.hide_label)
             return
 
         # Insertar usuario en la base de datos
-        if self.db1.insert(usuario,password,pago):
-            self.on_log_error_entry(f"Usuario {usuario} registrado correctamente.", fg_color="#5ccc58")
+        if self.db1.insert(nombre, fecha, clave, pago):
+            self.on_log_error_entry(message=f"Usuario {nombre} registrado correctamente.", fg_color="#5ccc58")
             self.start_loading()
         else:
-            self.on_log_error_entry("Error al registrar el usuario.")
-
-"""
-    def registrar_usuario(self):
-        usuario = self.entrada_usuario.get()
-        password = self.entrada_password.get()
-        verify_password = self.entrada_verify_password.get()
-
-        # Validaciones
-        if not usuario or not password or not verify_password:
-            self.on_log_error_entry()
-            return
-
-        if password != verify_password:
-            self.on_log_error_entry(message="Las contraseñas no coinciden.",fg_color="#c9d134",text_color="black")
-            self.after(1500,self.hide_label)
-            return
-
-        # Verificar si el usuario ya existe
-        for u in ControlMto.users:
-            if u["usuario"] == usuario:
-                self.on_log_error_entry(message="El usuario ya existe.")
-                self.after(1500, self.hide_label)
-                return
-
-        # Agregar usuario a la lista
-        ControlMto.users.append({"usuario": usuario, "password": password})
-        #self.after(2000,self.on_log_error_entry,show_loading_bar)
-        self.on_log_error_entry(message=f" usuario {usuario} registrado correctamente.",fg_color="#5ccc58")
-
-
-"""
-
-
-def registrar_usuario_e(self, event):
-    usuario = self.entrada_usuario.get()
-    password = self.entrada_password.get()
-    verify_password = self.entrada_verify_password.get()
-
-    # Validaciones
-    if not usuario or not password or not verify_password:
-        self.on_log_error_entry("Todos los campos son obligatorios.")
-        return
-
-    if password != verify_password:
-        self.on_log_error_entry("Las contraseñas no coinciden.", fg_color="#c9d134", text_color="black")
-        self.after(1500, self.hide_label)
-        return
-
-    # Verificar si el usuario ya existe en la base de datos
-    if self.db1.user_exists(usuario):
-        self.on_log_error_entry("El usuario ya existe.")
-        self.after(1500, self.hide_label)
-        return
-
-    # Insertar usuario en la base de datos
-    if self.db1.insert(usuario, password,):
-        self.on_log_error_entry(f"Usuario {usuario} registrado correctamente.", fg_color="#5ccc58")
-        self.start_loading()
-    else:
-        self.on_log_error_entry("Error al registrar el usuario.")
+            self.on_log_error_entry(message="Error al registrar usuario")
 
 app1 = ControlMto()
 app1.mainloop()
+
