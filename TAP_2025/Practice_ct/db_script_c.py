@@ -89,3 +89,32 @@ class DataBase:
         except Exception as e:
             print(f"Error al obtener foto: {e}")
             return []
+
+    def obtain_user(self):
+        # Obtener todos los usuarios
+        try:
+            conn = sqlite3.connect(self.db_name)
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT nombre FROM users")  # Asegúrate de que la tabla y columnas sean correctas
+            usuarios = cursor.fetchall()
+            conn.close()
+            return usuarios
+        except Exception as e:
+            print(f"Error al obtener usuarios: {e}")
+            return []
+
+    # Dentro de tu clase DataBase
+    def get_user_credentials(self, usuario):
+        try:
+            conexion = sqlite3.connect(self.db_name)
+            cursor = conexion.cursor()
+            cursor.execute("SELECT usuario, password, foto_perfil FROM users WHERE usuario = ?", (usuario,))
+            result = cursor.fetchone()
+            conexion.close()
+            if result:
+                return result  # Devuelve (usuario, password, foto)
+            return None  # Si no se encuentra el usuario
+        except Exception as e:
+            print(f"Error al recuperar las credenciales: {e}")
+            return None

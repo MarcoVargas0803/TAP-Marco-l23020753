@@ -1,6 +1,5 @@
 import customtkinter as ct
 from PIL import Image, ImageTk
-from tkinter import filedialog
 from Excercise_250225_register import Registro
 from MainApp import MainApp
 from db_script_c import DataBase
@@ -8,7 +7,7 @@ from db_script_c import DataBase
 class LoginApp(ct.CTk):
     def __init__(self):
         super().__init__()
-
+        self.db = DataBase()
         # Configuración de la ventana
         self.geometry("400x500")
         self.resizable(False, False)
@@ -17,10 +16,6 @@ class LoginApp(ct.CTk):
         # Modo de apariencia
         ct.set_appearance_mode("System")
         ct.set_default_color_theme("blue")
-
-        #Cargar usuarios de la base de datos
-
-        db = DataBase()
 
         self.configure_grid()
         self.create_widgets()
@@ -77,7 +72,6 @@ class LoginApp(ct.CTk):
         self.progress.set(0)  # Iniciar en 0
 
         # Eventos bind
-        self.image_label.bind("<Double-Button-1>",self.update_profile_picture)
         self.entry_user.bind("<FocusIn>", self.on_focus_in_user)
         self.entry_password.bind("<FocusIn>", self.on_focus_in_password)
         self.entry_user.bind("<FocusOut>", self.on_focus_out_user)
@@ -87,28 +81,16 @@ class LoginApp(ct.CTk):
         self.register_me.bind("<Enter>", self.on_enter_register)
         self.register_me.bind("<Leave>", self.on_leave_register)
         self.register_me.bind("<Button-1>", self.on_button_register)
+        self.bind("<Control-n>",self.on_button_register)
+        self.bind("<Control-N>",self.on_button_register)
 
-        self.bind("<Return>", self.submit_login_e)
+
+        self.bind("<Return>", self.submit_login)
         self.bind("<Shift_L>", self.on_show_in_password)
         self.bind("<Shift_R>",self.on_show_in_password)
 
         self.bind("<KeyRelease-Shift_L>",self.on_show_out_password)
         self.bind("<KeyRelease-Shift_R>",self.on_show_out_password)
-
-    def update_profile_picture(self, event):
-        # Abrir explorador de archivos
-        file_path = filedialog.askopenfilename(filetypes=[("Imágenes", "*.png;*.jpg;*.jpeg;*.gif")])
-        if not file_path:
-            return  # Si el usuario cancela, no hacer nada
-
-        # Cargar la nueva imagen con PIL
-        image = Image.open(file_path).resize((200, 200))  # Ajusta el tamaño según sea necesario
-        self.image_login = ct.CTkImage(light_image=image, dark_image=image, size=(200, 200))
-
-        # Actualizar la imagen en el Label
-        self.image_label.configure(image=self.image_login)
-        self.error_label.configure(text="Imagen Actualizada",text_color="black",fg_color="green")
-        self.after(2000,self.hide_label)
 
     def hide_label(self):
         self.error_label.configure(text="",fg_color="transparent") # Oculta el Label
@@ -155,6 +137,7 @@ class LoginApp(ct.CTk):
         self.button_login.configure(state="disabled")  # Deshabilitar botón
         self.progress.set(0)  # Reiniciar barra de progreso
         self.update_progress(0)  # Iniciar progreso
+        self.error_label.configure(text="Iniciando sesión...", text_color="white", fg_color="green")
 
     def update_progress(self, value):
         """Simula el progreso y carga la nueva ventana"""
@@ -173,51 +156,50 @@ class LoginApp(ct.CTk):
             self.entry_password.configure(show="*")
 
     def validar_usuario(self, event):
-        """Verificar en tiempo real si el usuario existe."""
-        user = self.entry_user.get()
-        if any(u["usuario"] == user for u in Registro.users):
-            self.error_label.configure(text="Usuario encontrado", text_color="white",fg_color="green")
+        # Verificar en tiempo real si el usuario existe.
+        user = self.entry_user.get().strip()
+
+        usuarios = self.db.obtain_user()
+        if any(user == u[0] for u in usuarios):
+            self.error_label.configure(text="Usuario encontrado", text_color="white", fg_color="green")
         else:
-            self.error_label.configure(text="Usuario no existe", text_color="white",fg_color="#f04735")
+            self.error_label.configure(text="Usuario no encontrado", text_color="white", fg_color="#f04735")
 
-    def submit_login(self):
+    def submit_login(self, event=None):
         user = self.entry_user.get()
         password = self.entry_password.get()
 
-        # Verificar si hay usuarios registrados
-        if not Registro.users:
-            self.on_log_error_entry("No hay usuarios registrados", "white", "#f04735")
-            self.after(1000, self.hide_label)
-            return
+        # Llamar a la función para recuperar las credenciales del usuario
+        user_data = self.db.get_user_credentials(user)
 
-        # Buscar el usuario en la lista
-        for u in Registro.users:
-            if u["usuario"] == user and u["password"] == password:
-                self.error_label.configure(text="Cargando...",fg_color="#5ccc58")
+        if user_data:
+            db_user, db_password, db_foto = user_data
+
+            # Verificar la contraseña
+            if db_password == password:
+                self.error_label.configure(text="Cargando...", fg_color="#5ccc58")
+                self.update_profile_picture_from_db(db_foto)  # Actualiza la foto de perfil
                 self.start_loading()  # Agrega esto
                 return
-        self.on_log_error_entry("Usuario y/o contraseña incorrectos", "white", "#f04735",)
-        self.after(1000,self.hide_label)
+            else:
+                self.on_log_error_entry("Contraseña incorrecta", "white", "#f04735")
+        else:
+            self.on_log_error_entry("Usuario no encontrado", "white", "#f04735")
 
+        self.after(1000, self.hide_label)  # Oculta el mensaje de error
 
-    def submit_login_e(self,event):
-        user = self.entry_user.get()
-        password = self.entry_password.get()
+    def update_profile_picture_from_db(self, foto_path):
+        try:
+            image = Image.open(foto_path).resize((200, 200))  # Ajusta el tamaño según sea necesario
+            self.image_login = ct.CTkImage(light_image=image, dark_image=image, size=(200, 200))
 
-        # Verificar si hay usuarios registrados
-        if not Registro.users:
-            self.on_log_error_entry("No hay usuarios registrados", "white", "#f04735")
-            self.after(1000, self.hide_label)
-            return
-
-        # Buscar el usuario en la lista
-        for u in Registro.users:
-            if u["usuario"] == user and u["password"] == password:
-                self.error_label.configure(text="Cargando...",fg_color="#5ccc58")
-                self.start_loading()  # Agrega esto
-                return
-        self.on_log_error_entry("Usuario y/o contraseña incorrectos", "white", "#f04735",)
-        self.after(1000,self.hide_label)
+            # Actualizar la imagen en el Label
+            self.image_label.configure(image=self.image_login)
+            self.after(2000, self.hide_label)
+        except Exception as e:
+            print(f"Error al cargar la foto de perfil: {e}")
+            self.error_label.configure(text="Error al cargar imagen", text_color="white", fg_color="#f04735")
+            self.after(2000, self.hide_label)
 
     def open_main_window(self):
         self.destroy()  # Cierra la ventana actual
