@@ -2,7 +2,7 @@
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import create_engine
 
 #Hacemos un objeto de clase Base
@@ -16,6 +16,8 @@ class Assistant(Base):
     #Cramos las columnas de la tabla
     #Aqui estamos creando la tabla y los atributos del objeto a la vez
     id_assistant=Column(Integer,primary_key=True)
+    assistances = relationship("Assistance", back_populates="assistant")
+
     name_assistant=Column(String(100))
     first_lastname_assistant=Column(String)
     second_lastname_assistant=Column(String)
@@ -35,7 +37,7 @@ class Assistant(Base):
     #A diferencia dell __str__ que devuelve una cadena
     #INVESTIGAR: ¿Qué es __repr__?
     def __repr__(self):
-        return (f"Post(id: {self.id!r}, name: {self.name_assistant!r}",
+        return (f"Post(id: {self.id_assistant!r}, name: {self.name_assistant!r}",
                 f"First_lastname: {self.first_lastname_assistant}",
                 f"Second_lastname: {self.second_lastname_assistant}",
                 f"CURP: {self.CURP_assistant}"

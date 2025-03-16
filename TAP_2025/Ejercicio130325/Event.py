@@ -3,9 +3,8 @@ from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import Date
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy import create_engine
-
 #Hacemos un objeto de clase Base
 Base = declarative_base()
 
@@ -17,6 +16,9 @@ class Event(Base):
     #Cramos las columnas de la tabla
     #Aqui estamos creando la tabla y los atributos del objeto a la vez
     id_event=Column(Integer,primary_key=True)
+    assistances = relationship("Assistance",back_populates="event")
+
+
     name_event=Column(String(100))
     date_event=Column(Date) # de datetime.date => se pasa atributo como =date(##,##,##)
     place_event=Column(String)
