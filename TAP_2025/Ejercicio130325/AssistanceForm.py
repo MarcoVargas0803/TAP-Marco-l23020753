@@ -5,13 +5,10 @@ from sqlalchemy.orm import sessionmaker
 from consult_AssistanceClasses import Assistant_consult
 from consult_AssistanceClasses import Event_consult
 from consult_AssistanceClasses import Assistance_consult
-from ORM_classes import Assistance, Event, engine
+from ORM_classes import Assistance, engine
 import customtkinter as ct
 from AsisstantForm import AssistantForm
 from Event_Form import EventForm
-import tkinter.font as tkfont
-from PIL import Image
-
 
 class AssistanceForm(ct.CTk):
     def __init__(self):
@@ -52,8 +49,8 @@ class AssistanceForm(ct.CTk):
         self.grid_rowconfigure(index=1,weight=1)
 
     def frame_main_creation(self):
-        self.FrameMain = ct.CTkFrame(self, corner_radius=0)
-        self.frameTree = ct.CTkFrame(self, fg_color="#d54c4a", corner_radius=0)
+        self.FrameMain = ct.CTkFrame(self, corner_radius=0, fg_color="#FFFFFF")
+        self.frameTree = ct.CTkFrame(self, fg_color="#FFFFFF", corner_radius=0)
         self.FrameMain.grid(column=0, row=0, sticky="nsew")
         self.frameTree.grid(column=0, row=1, sticky="nsew")
 
@@ -62,24 +59,24 @@ class AssistanceForm(ct.CTk):
         self.FrameMain.grid_rowconfigure(index=(0, 1,2), weight=1)
 
     def frametitle_creation(self):
-        self.title_label = ct.CTkLabel(self.FrameMain, text_color="#fcf9ce", text="Registro de Asistencia", font=("Helvetica", 50))
-        self.title_label.grid(column=0,row=0,sticky="nsew", pady=10, padx =10,columnspan=2)
+        self.title_label = ct.CTkLabel(self.FrameMain, text_color="#121212", text="Registro de Asistencia", font=("Helvetica", 30))
+        self.title_label.grid(column=0,row=0,sticky="w", pady=10, padx =10,columnspan=2)
 
         #Combobox event
-        self.select_event = ct.CTkComboBox(self.FrameMain, values=self.events,state="readonly")
+        self.select_event = ct.CTkComboBox(self.FrameMain, values=self.events,state="readonly",text_color="#FFFFFF",fg_color="lightgray")
         self.select_event.grid(column=0,row=1,sticky="nsew",pady=10,padx=10)
 
 
         #Combobox assistant
-        self.select_assistant = ct.CTkComboBox(self.FrameMain, values=self.assistants,state="readonly")
+        self.select_assistant = ct.CTkComboBox(self.FrameMain, values=self.assistants,state="readonly",text_color="#FFFFFF",fg_color="lightgray")
         self.select_assistant.grid(column=1, row=1, sticky="nsew", pady=10, padx=10)
 
         #Register event label
-        self.register_event_label = ct.CTkLabel(self.FrameMain,text="Registrar evento",font=("Helvetica",10),text_color="black",fg_color="orange",corner_radius=20)
+        self.register_event_label = ct.CTkLabel(self.FrameMain,text="Registrar evento",font=("Helvetica",20),text_color="#121212",fg_color="lightgray",corner_radius=20)
         self.register_event_label.grid(column=0, row= 2 , sticky="nsew", pady=10, padx=10)
         #Register assistant label
-        self.register_assistant_label = ct.CTkLabel(self.FrameMain, text="Registrar asistencia", font=("Helvetica", 10),
-                                                text_color="black", fg_color="orange", corner_radius=20)
+        self.register_assistant_label = ct.CTkLabel(self.FrameMain, text="Registrar asistencia", font=("Helvetica", 20),
+                                                text_color="#121212", fg_color="lightgray", corner_radius=20)
         self.register_assistant_label.grid(column=1, row=2, sticky="nsew", pady=10, padx=10)
 
     def configurar_grid_tree(self):
@@ -87,9 +84,18 @@ class AssistanceForm(ct.CTk):
         self.frameTree.grid_columnconfigure(index=(0,1), weight=1)
 
     def frameTree_creation(self):
+        style = Style()
+        style.configure("Custom.Treeview",
+                        foreground="black",
+                        background="lightgray",
+                        font=('Helvetica', 12),
+                        rowheight=25)
+        style.map("Custom.Treeview",
+                  background=[('selected', 'lightblue')],
+                  foreground=[('selected', 'black')])
+        self.tv = Treeview(self.frameTree, columns=("Columna1", "Columna2"),style="Custom.Treeview")
 
-        self.tv = Treeview(self.frameTree, columns=("Columna1", "Columna2"))
-        # Style.configure("Treeview",rowheight=40)
+
         self.tv.heading("#0", text="Id")
         self.tv.heading("Columna1", text="Event")
         self.tv.heading("Columna2", text="Num_asistencias")
@@ -105,9 +111,9 @@ class AssistanceForm(ct.CTk):
         self.tv.grid(column=0,row=0,sticky="nsew",columnspan=2)
         self.llenar_treeview()
 
-        self.label_register = ct.CTkLabel(self.frameTree, text_color="#fcf9ce", text="Registrar asistente",
+        self.label_register = ct.CTkLabel(self.frameTree, text_color="#121212", text="Registrar asistente",
                                           font=("Helvetica", 15),bg_color="green")
-        self.view_list = ct.CTkLabel(self.frameTree, text_color="#fcf9ce", text="Ver lista",
+        self.view_list = ct.CTkLabel(self.frameTree, text_color="#121212", text="Ver lista",
                                           font=("Helvetica", 15),bg_color="blue")
 
         self.label_message = ct.CTkLabel(self.frameTree, text="TEXTO DE PRUEBA ", font=("Helvetica", 15), corner_radius=20)
@@ -174,16 +180,10 @@ class AssistanceForm(ct.CTk):
 
 
         #Register_assistance_label.bind
-        self.register_assistant_label.bind("<Enter>",lambda e: self.on_focus_in(self.register_event_label, " Registrar asistencia "))
-        self.register_assistant_label.bind("<Leave>", lambda e: self.on_focus_out(self.register_event_label))
+        self.register_assistant_label.bind("<Enter>",lambda e: self.on_focus_in(self.register_assistant_label, " Registrar asistencia "))
+        self.register_assistant_label.bind("<Leave>", lambda e: self.on_focus_out(self.register_assistant_label))
         #Register_event_label.bind ==> Modal Callback
         self.register_assistant_label.bind("<Button-1>",self.open_assistant_window)
-
-
-
-
-
-
 
     def display_selected(self):
         selected_event = self.select_event.get()
@@ -193,31 +193,30 @@ class AssistanceForm(ct.CTk):
         print(f"Asistente seleccionado: {selected_assistant}")
 
     def on_enter_label_in_register(self, event):
-        self.label_register.configure(text_color="green")
+        self.label_register.configure(text_color="#121212")
 
     def on_leave_label_out_register(self, event):
-        self.label_register.configure(text_color="#fcf9ce")
+        self.label_register.configure(text_color="#121212")
 
     def on_label_in_view_list(self,event):
-        self.view_list.configure(text_color="green")
+        self.view_list.configure(text_color="#121212")
 
     def on_label_out_view_list(self,event):
-        self.view_list.configure(text_color="#fcf9ce")
+        self.view_list.configure(text_color="#121212")
 
-    def on_log_error_entry(self, text_color="#d1cdcd", message="Todos los campos son obligatorios.",
-                           ):
+    def on_log_error_entry(self, text_color="#121212", message="Todos los campos son obligatorios."):
         self.label_message.configure(text=message, text_color=text_color, corner_radius=20)
 
     def hide_label(self):
         self.label_message.configure(text="", fg_color="transparent")  # Oculta el Label
 
     def on_focus_in(self, entry, message):
-        entry.configure(text_color="white")
-        self.label_message.configure(text=message, fg_color="#9197a1", text_color="black")
+        entry.configure(text_color="#757575")
+        self.label_message.configure(text=message, fg_color="lightgray", text_color="#757575")
         self.after(1500, self.hide_label)
 
     def on_focus_out(self, entry):
-        entry.configure(text_color="gray")
+        entry.configure(text_color="#121212")
 
     def validate_user(self, event):
         # Verificar en tiempo real si el usuario existe.
@@ -232,19 +231,21 @@ class AssistanceForm(ct.CTk):
 
 
     def view_listWindow(self,event=None):
-        print("Abriendo ventana Modal para ver lista de asistencia... ")
+        print("Funcionalidad en proceso")
 
     def open_event_window(self,event=None):
         modalEvent = EventForm()
         modalEvent.grab_set()  # Se asegura de que la ventana modal esté bloqueada
         modalEvent.wait_window()
         self.refresh_combobox()
+        self.llenar_treeview()
 
     def open_assistant_window(self,event=None):
         modalAssistant = AssistantForm()
         modalAssistant.grab_set()  # Se asegura de que la ventana modal esté bloqueada
         modalAssistant.wait_window()
         self.refresh_combobox()
+        self.llenar_treeview()
 
     def register_user(self, event=None):
 
@@ -255,6 +256,11 @@ class AssistanceForm(ct.CTk):
         # Obtener los datos seleccionados de los comboboxes
         evento_seleccionado = self.select_event.get()
         asistente_seleccionado = self.select_assistant.get()
+
+        # Verificaciones de datos nulos
+        if not evento_seleccionado or not asistente_seleccionado:
+            self.label_message.configure(text="No debe de haber datos nulos")
+            return  # Salir de la función si hay datos nulos
 
         event_id = self.event_consult.consult_by_name_for_id(evento_seleccionado)
         assistant_id = self.assistant_consult.consult_by_name_for_id(asistente_seleccionado)
@@ -285,3 +291,5 @@ class AssistanceForm(ct.CTk):
 
 app = AssistanceForm()
 app.mainloop()
+
+

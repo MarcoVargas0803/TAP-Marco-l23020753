@@ -68,7 +68,7 @@ class Assistance(Base):
 
 
 
-engine=create_engine("sqlite:///db_assistance.db", echo=True, future=True)
+engine=create_engine("sqlite:///db_assistance.db")
 
 #Arrancamos el motor
 Base.metadata.create_all(engine)

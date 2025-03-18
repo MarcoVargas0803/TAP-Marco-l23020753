@@ -1,5 +1,6 @@
 import customtkinter as ct
 import tkinter.font as tkfont
+from tkcalendar import DateEntry
 from ORM_classes import Event, engine
 from PIL import Image
 from sqlalchemy.orm import sessionmaker
@@ -31,14 +32,6 @@ class EventForm(ct.CTkToplevel):
         self.bind_creation()
         self.in_focus_id_event_auto_define()
 
-        """self.configurar_grid()
-        self.frame_creation()
-        self.frame_creation()
-        self.entry_creation()
-        self.button_creation()
-        self.label_creation()
-        self.bind_creation()
-        """
     def configurar_grid_main(self):
         self.grid_columnconfigure(index=(0,1), weight=1)
         self.grid_rowconfigure(index=0,weight=1)
@@ -84,8 +77,12 @@ class EventForm(ct.CTkToplevel):
 
         self.id_entry =ct.CTkEntry(self.framewidgets,placeholder_text_color="texto de prueba",fg_color="#dea37a",text_color="#fcf9ce")
         self.name_entry =ct.CTkEntry(self.framewidgets,placeholder_text_color="texto de prueba",fg_color="#dea37a",text_color="#fcf9ce")
-        self.date_entry =ct.CTkEntry(self.framewidgets,placeholder_text_color="Ej: 2024-03-17 14:30:00",fg_color="#dea37a",text_color="#fcf9ce")
+        #self.date_entry =ct.CTkEntry(self.framewidgets,placeholder_text_color="Ej: 2024-03-17 14:30:00",fg_color="#dea37a",text_color="#fcf9ce")
         self.place_entry =ct.CTkEntry(self.framewidgets,placeholder_text_color="texto de prueba",fg_color="#dea37a",text_color="#fcf9ce")
+
+        # Integrar el calendario
+        self.date_entry = DateEntry(self.framewidgets, width=12, font=("Helvetica", 12), background="lightblue",
+                                    foreground="black", date_pattern="yyyy-mm-dd")
 
         self.label_register = ct.CTkLabel(self.framewidgets, text_color="#fcf9ce", text="Register",
                                           font=("Helvetica", 15))
@@ -160,9 +157,9 @@ class EventForm(ct.CTkToplevel):
         self.name_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.name_entry, " Nombre del evento "))
         self.name_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.name_entry))
 
-        self.date_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.date_entry,
+        """self.date_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.date_entry,
                                                                                 " Fecha asignada para el evento"))
-        self.date_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.date_entry))
+        self.date_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.date_entry))"""
 
         self.place_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.place_entry, " Lugar del evento "))
         self.place_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.place_entry))
@@ -209,7 +206,8 @@ class EventForm(ct.CTkToplevel):
 
     def register_user(self, event=None):
         name = self.name_entry.get()
-        date = self.date_entry.get()
+        #date = self.date_entry.get()
+        date = self.date_entry.get_date()  # Obtener la fecha seleccionada
         place = self.place_entry.get()
 
         self.Session = sessionmaker(bind=engine)
@@ -222,16 +220,17 @@ class EventForm(ct.CTkToplevel):
 
         try:
             # Convertir la cadena ingresada a un objeto datetime
-            fecha_formateada = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
+            fecha_formateada = datetime.combine(date,
+                                                datetime.min.time())  # Combina la fecha seleccionada con una hora predeterminada
 
             # Crear y guardar el registro en la base de datos
-            nuevo_registro = Event(name,fecha_formateada,place)
+            nuevo_registro = Event(name, fecha_formateada, place)
             self.sesion.add(nuevo_registro)
             self.sesion.commit()
-            self.on_log_error_entry(message=f" usuario {name} registrado correctamente.")
+            self.on_log_error_entry(message=f" Evento {name} registrado correctamente.")
             self.start_loading()  # Cierra la ventana de registro
         except ValueError:
-            self.label_message.configure(text="Formato incorrecto. Usa: YYYY-MM-DD HH:MM:SS", text_color="red")
+            self.label_message.configure(text="Formato incorrecto. Usa: YYYY-MM-DD", text_color="red")
 
         # Agregar usuario a la base de datos
         # Insertando registro

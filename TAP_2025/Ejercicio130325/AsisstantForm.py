@@ -27,6 +27,8 @@ class AssistantForm(ct.CTkToplevel):
         self.bind_creation()
         self.in_focus_id_assistant_auto_define()
 
+        self.assistant_consult = Assistant_consult()
+
 
     def configurar_grid(self):
         self.grid_columnconfigure(0, weight=1)
@@ -196,12 +198,19 @@ class AssistantForm(ct.CTkToplevel):
         nombre = self.name_entry.get()
         first_lastname = self.first_lastname_entry.get()
         second_lastname = self.second_lastname_entry.get()
-        curp = self.first_lastname_entry.get()
+        curp = self.curp_entry.get()
         phone = self.phone_entry.get()
 
         # Validaciones
         if not nombre or not first_lastname or not second_lastname or not curp or not phone:
             self.on_log_error_entry()
+            return
+
+        # Consulta para verificar si ya existe un asistente con esa CURP
+        existing_assistant = self.assistant_consult.check_assistant_by_curp(curp)
+
+        if existing_assistant:
+            self.on_log_error_entry(message="La CURP ya está registrada.")
             return
 
         # Verificar si el usuario ya existe
@@ -222,4 +231,3 @@ class AssistantForm(ct.CTkToplevel):
         sesion.commit()
         self.on_log_error_entry(message=f" usuario {nombre} registrado correctamente.",fg_color="#5ccc58")
         self.start_loading()  # Cierra la ventana de registro
-

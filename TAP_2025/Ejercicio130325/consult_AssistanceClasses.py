@@ -69,6 +69,22 @@ class Assistant_consult:
         finally:
             self.session.close()
 
+    def check_assistant_by_curp(self, curp):
+        try:
+            # Verificar si ya existe un asistente con esa CURP
+            existing_assistant = self.session.query(Assistant).filter_by(curp_assistant=curp).first()
+            if existing_assistant:
+                print(f"Ya existe un asistente con la CURP: {curp}")
+                return True
+            else:
+                print(f"No se encontró ningún asistente con la CURP: {curp}")
+                return False
+        except Exception as e:
+            print(f"Error en check_assistant_by_curp: {e}")
+            return None
+        finally:
+            self.session.close()
+
 class Event_consult:
     def __init__(self):
         self.Session = sessionmaker(bind=ORM_classes.engine)
@@ -166,8 +182,3 @@ class Assistance_consult:
             return 0  # Devuelve 0 en caso de error
         finally:
             self.session.close()
-
-app = Event_consult()
-eventos = app.consult_all_events()
-for evento in eventos:
-    print(evento.id_event)
