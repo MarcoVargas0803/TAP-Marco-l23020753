@@ -1,6 +1,11 @@
 import customtkinter as ct
+from ORM_classes import Assistant, engine
+from sqlalchemy.orm import sessionmaker
+from consult_AssistanceClasses import Assistant_consult
 
-class Assistant(ct.CTk):
+
+
+class AssistantForm(ct.CTkToplevel):
     def __init__(self):
         super().__init__()
 
@@ -8,6 +13,7 @@ class Assistant(ct.CTk):
         self.geometry("600x650")
         self.minsize(500,500)
         self.resizable(True, True)
+        self.grab_set()
 
         self.foto_path = "usuario.png"
 
@@ -17,7 +23,10 @@ class Assistant(ct.CTk):
         self.entry_creation()
         self.button_creation()
         self.label_creation()
+        self.progress_bar_creation()
         self.bind_creation()
+        self.in_focus_id_assistant_auto_define()
+
 
     def configurar_grid(self):
         self.grid_columnconfigure(0, weight=1)
@@ -47,23 +56,22 @@ class Assistant(ct.CTk):
     def entry_creation(self):
 
         # Entradas de texto
-        self.id_assistant_entry = ct.CTkEntry(self.id_frame, placeholder_text="Fulanito Alberto", width=400)
+        self.id_assistant_entry = ct.CTkEntry(self.id_frame, placeholder_text="Id", width=400)
         self.id_assistant_entry.pack(padx=20, pady=5, fill="x", expand=True)
-        self.id_assistant_entry.bind("<FocusIn>")
 
-        self.name_entry = ct.CTkEntry(self.name_frame, placeholder_text="Alimaña Rodriguez", width=400)
+        self.name_entry = ct.CTkEntry(self.name_frame, placeholder_text="Name", width=400)
         self.name_entry.pack(padx=20, pady=5, fill="x", expand=True)
 
-        self.first_lastname_entry = ct.CTkEntry(self.first_lastn_frame, placeholder_text="Correo", width=400)
+        self.first_lastname_entry = ct.CTkEntry(self.first_lastn_frame, placeholder_text="First_LastName", width=400)
         self.first_lastname_entry.pack(padx=20, pady=5, fill="x", expand=True)
 
-        self.second_lastname_entry = ct.CTkEntry(self.sec_lastn_frame, placeholder_text="Juanito123@", show="*", width=400)
+        self.second_lastname_entry = ct.CTkEntry(self.sec_lastn_frame, placeholder_text="Second_Lastname", width=400)
         self.second_lastname_entry.pack(padx=20, pady=5, fill="x", expand=True)
 
-        self.curp_entry = ct.CTkEntry(self.curp_frame, show="*", placeholder_text="Juanito123@", width=400)
+        self.curp_entry = ct.CTkEntry(self.curp_frame, placeholder_text="CURP", width=400)
         self.curp_entry.pack(padx=20, pady=5, fill="x", expand=True)
 
-        self.phone_entry = ct.CTkEntry(self.phone_frame, placeholder_text="Juanito1", width=400)
+        self.phone_entry = ct.CTkEntry(self.phone_frame, placeholder_text="Phone", width=400)
         self.phone_entry.pack(padx=20, pady=5, fill="x", expand=True)
 
     def button_creation(self):
@@ -74,32 +82,39 @@ class Assistant(ct.CTk):
 
     def label_creation(self):
         # Error label
-        self.title = ct.CTkLabel(self.frame_title, text="Asistente", font=("Helvetica",50),corner_radius=20)
-        self.title.pack(side="left", padx=10, pady=10)
+        self.title_label = ct.CTkLabel(self.frame_title, text=" nuevo asistente", font=("Helvetica",34),corner_radius=20)
+        self.title_label.pack(side="left", padx=10, pady=10)
 
         self.label_message = ct.CTkLabel(self.frame_title, text=" ", font=("Helvetica", 15), corner_radius=20)
         self.label_message.pack(side="right", padx=10, pady=10)
 
     def bind_creation(self):
         # Eventos bind
-        self.id_assistant_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.id_assistant_entry, " Nombre de pila "))
+
+        self.id_assistant_entry.bind("<FocusIn>",self.in_focus_id_assistant_auto_define)
+        self.id_assistant_entry.bind("<FocusOut>",self.out_focus_id_assistant_auto_define)
+
+        self.id_assistant_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.id_assistant_entry, " Id asignado "))
         self.id_assistant_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.id_assistant_entry))
 
-        self.name_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.name_entry, " 1er y 2ndo Apellido "))
+        self.name_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.name_entry, " Nombre de pila "))
         self.name_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.name_entry))
 
-        self.second_lastname_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.second_lastname_entry,
-                                                                                " Al menos un caracter especial "))
-        self.second_lastname_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.second_lastname_entry))
-
-        self.curp_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.curp_entry, " Verificar contraseña "))
-        self.curp_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.curp_entry))
-
         self.first_lastname_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.first_lastname_entry,
-                                                                               " Correo personal u institucional "))
+                                                                               " Primer Apellido "))
         self.first_lastname_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.first_lastname_entry))
 
-        self.phone_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.phone_entry, " Nombre de usuario "))
+
+        self.second_lastname_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.second_lastname_entry,
+                                                                                " Segundo Apellido "))
+        self.second_lastname_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.second_lastname_entry))
+
+        self.curp_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.curp_entry, " CURP del asistente "))
+        self.curp_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.curp_entry))
+
+
+
+        self.phone_entry.bind("<FocusIn>", lambda e: self.on_focus_in(self.phone_entry, " Numero de telefono "))
         self.phone_entry.bind("<FocusOut>", lambda e: self.on_focus_out(self.phone_entry))
 
         #KeyRealease user
@@ -154,22 +169,39 @@ class Assistant(ct.CTk):
         else:
             self.label_message.configure(text="Disponible para registrar", text_color="white", fg_color="green")
 """
+
+    def in_focus_id_assistant_auto_define(self,event=None):
+        self.id_consult = Assistant_consult()
+        last_id = self.id_consult.consult_last_id()
+
+        if last_id is None:
+            self.label_message.configure(text="Ningun dato en la base de datos")
+            print("ningun dato en base de datos")
+            last_id = 1
+        else:
+            last_id = last_id + 1
+
+        self.id_assistant_entry.delete(0, "end")  # Elimina texto anterior
+        self.id_assistant_entry.insert(0, last_id)  # Inserta la fecha y hora actual
+        self.id_assistant_entry.configure(text_color="white",state="disabled")
+        self.label_message.configure(text="Test de prueba id", fg_color="#9197a1", text_color="black")
+        self.after(1500, self.hide_label)
+
+    def out_focus_id_assistant_auto_define(self,event):
+        self.id_assistant_entry.configure(state="disabled",placeholder_text="0001")
+
+
+
     def register_user(self, event=None):
-        nombre = self.id_assistant_entry.get()
-        apellido = self.name_entry.get()
-        password = self.second_lastname_entry.get()
-        email = self.first_lastname_entry.get()
-        usuario = self.phone_entry.get()
-        verify_password = self.curp_entry.get()
+        nombre = self.name_entry.get()
+        first_lastname = self.first_lastname_entry.get()
+        second_lastname = self.second_lastname_entry.get()
+        curp = self.first_lastname_entry.get()
+        phone = self.phone_entry.get()
 
         # Validaciones
-        if not usuario or not password or not verify_password:
+        if not nombre or not first_lastname or not second_lastname or not curp or not phone:
             self.on_log_error_entry()
-            return
-
-        if password != verify_password:
-            self.on_log_error_entry(message="Las contraseñas no coinciden.",fg_color="#c9d134",text_color="black")
-            self.after(1500,self.hide_label)
             return
 
         # Verificar si el usuario ya existe
@@ -180,9 +212,14 @@ class Assistant(ct.CTk):
                 return"""
 
         # Agregar usuario a la base de datos
-        #self.db.insert_user(nombre,apellido,email,usuario,password,foto=foto_pefil)
-        self.on_log_error_entry(message=f" usuario {usuario} registrado correctamente.",fg_color="#5ccc58")
+        # Insertando registros
+        Session = sessionmaker(bind=engine)
+        sesion = Session()
+
+        new_assistant = Assistant(nombre,first_lastname,second_lastname,curp,phone)
+        sesion.add(new_assistant)
+
+        sesion.commit()
+        self.on_log_error_entry(message=f" usuario {nombre} registrado correctamente.",fg_color="#5ccc58")
         self.start_loading()  # Cierra la ventana de registro
 
-app = Assistant()
-app.mainloop()

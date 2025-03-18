@@ -1,6 +1,8 @@
 from ORM_test import engine, Post
 from sqlalchemy.orm import sessionmaker
 
+
+#Insertando registros
 Session = sessionmaker(bind=engine)
 sesion = Session()
 

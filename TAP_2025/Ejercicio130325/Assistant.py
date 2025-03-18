@@ -18,11 +18,11 @@ class Assistant(Base):
     id_assistant=Column(Integer,primary_key=True)
     assistances = relationship("Assistance", back_populates="assistant")
 
-    name_assistant=Column(String(100))
-    first_lastname_assistant=Column(String)
-    second_lastname_assistant=Column(String)
-    curp_assistant=Column(String)
-    phone_assistant=Column(Integer)
+    name_assistant=Column(String(50))
+    first_lastname_assistant=Column(String(50))
+    second_lastname_assistant=Column(String(50))
+    curp_assistant=Column(String(18))
+    phone_assistant=Column(String(10))
 
     #Creando el cosntructor para el objeto
     def __init__(self,id_assistant, name, first_lastname, second_lastname, CURP, Phone):
@@ -43,10 +43,14 @@ class Assistant(Base):
                 f"CURP: {self.CURP_assistant}"
                 f"Phone: {self.phone_assistant})")
 
+
 #Aqui creamos el motor, indicamos el tipo de base de datos, y el nombre
 #echo funciona para devolver respuestas desde la base de datos
 #INVESTIGAR : ¿Qué es future?
 engine=create_engine("sqlite:///db_assistance.db", echo=True, future=True)
+
+#Creando consultas
+
 
 #Arrancamos el motor
 Base.metadata.create_all(engine)
