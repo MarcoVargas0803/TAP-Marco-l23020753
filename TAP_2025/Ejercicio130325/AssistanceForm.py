@@ -49,8 +49,8 @@ class AssistanceForm(ct.CTk):
         self.grid_rowconfigure(index=1,weight=1)
 
     def frame_main_creation(self):
-        self.FrameMain = ct.CTkFrame(self, corner_radius=0, fg_color="#FFFFFF")
-        self.frameTree = ct.CTkFrame(self, fg_color="#FFFFFF", corner_radius=0)
+        self.FrameMain = ct.CTkFrame(self, corner_radius=0, fg_color="#ffe5f0")
+        self.frameTree = ct.CTkFrame(self, fg_color="#ffe5f0", corner_radius=0)
         self.FrameMain.grid(column=0, row=0, sticky="nsew")
         self.frameTree.grid(column=0, row=1, sticky="nsew")
 
@@ -59,24 +59,24 @@ class AssistanceForm(ct.CTk):
         self.FrameMain.grid_rowconfigure(index=(0, 1,2), weight=1)
 
     def frametitle_creation(self):
-        self.title_label = ct.CTkLabel(self.FrameMain, text_color="#121212", text="Registro de Asistencia", font=("Helvetica", 30))
+        self.title_label = ct.CTkLabel(self.FrameMain, text_color="#121212", text="Registro de Asistencia", font=("Verdana", 30))
         self.title_label.grid(column=0,row=0,sticky="w", pady=10, padx =10,columnspan=2)
 
         #Combobox event
-        self.select_event = ct.CTkComboBox(self.FrameMain, values=self.events,state="readonly",text_color="#FFFFFF",fg_color="lightgray")
+        self.select_event = ct.CTkComboBox(self.FrameMain, values=self.events,state="readonly",text_color="#171616",fg_color="#e0dede")
         self.select_event.grid(column=0,row=1,sticky="nsew",pady=10,padx=10)
 
 
         #Combobox assistant
-        self.select_assistant = ct.CTkComboBox(self.FrameMain, values=self.assistants,state="readonly",text_color="#FFFFFF",fg_color="lightgray")
+        self.select_assistant = ct.CTkComboBox(self.FrameMain, values=self.assistants,state="readonly",text_color="#171616",fg_color="#e0dede")
         self.select_assistant.grid(column=1, row=1, sticky="nsew", pady=10, padx=10)
 
         #Register event label
-        self.register_event_label = ct.CTkLabel(self.FrameMain,text="Registrar evento",font=("Helvetica",20),text_color="#121212",fg_color="lightgray",corner_radius=20)
+        self.register_event_label = ct.CTkLabel(self.FrameMain,text="Registrar evento",font=("Helvetica",20),text_color="#121212",fg_color="#c999af",corner_radius=20,width=30, height= 30)
         self.register_event_label.grid(column=0, row= 2 , sticky="nsew", pady=10, padx=10)
         #Register assistant label
-        self.register_assistant_label = ct.CTkLabel(self.FrameMain, text="Registrar asistencia", font=("Helvetica", 20),
-                                                text_color="#121212", fg_color="lightgray", corner_radius=20)
+        self.register_assistant_label = ct.CTkLabel(self.FrameMain, text=" Registrar asistente ", font=("Helvetica", 20),
+                                                text_color="#121212", fg_color="#c999af", corner_radius=20)
         self.register_assistant_label.grid(column=1, row=2, sticky="nsew", pady=10, padx=10)
 
     def configurar_grid_tree(self):
@@ -111,10 +111,10 @@ class AssistanceForm(ct.CTk):
         self.tv.grid(column=0,row=0,sticky="nsew",columnspan=2)
         self.llenar_treeview()
 
-        self.label_register = ct.CTkLabel(self.frameTree, text_color="#121212", text="Registrar asistente",
-                                          font=("Helvetica", 15),bg_color="green")
-        self.view_list = ct.CTkLabel(self.frameTree, text_color="#121212", text="Ver lista",
-                                          font=("Helvetica", 15),bg_color="blue")
+        self.label_register = ct.CTkLabel(self.frameTree, text_color="#121212", text=" Registrar asistente ",
+                                          font=("Helvetica", 15),fg_color="#fdcae7",corner_radius=20)
+        self.view_list = ct.CTkLabel(self.frameTree, text_color="#121212", text=" Ver lista ",
+                                          font=("Helvetica", 15),fg_color="#e3b1c8", corner_radius=20)
 
         self.label_message = ct.CTkLabel(self.frameTree, text="TEXTO DE PRUEBA ", font=("Helvetica", 15), corner_radius=20)
 
@@ -137,7 +137,7 @@ class AssistanceForm(ct.CTk):
 
     def progress_bar_creation(self):
         # Barra de progreso (oculta al inicio)
-        self.progress = ct.CTkProgressBar(self.frameTree)
+        self.progress = ct.CTkProgressBar(self.frameTree,progress_color="#c999af")
         self.progress.grid(column=0,row=3, padx=10, sticky="ew",columnspan=2)
         self.progress.set(0)  # Iniciar en 0
 
@@ -159,14 +159,14 @@ class AssistanceForm(ct.CTk):
 
     def bind_creation(self):
         # Eventos bind
-        self.label_register.bind("<Enter>",self.on_enter_label_in_register)
-        self.label_register.bind("<Leave>",self.on_leave_label_out_register)
+        self.label_register.bind("<Enter>",lambda e: self.on_focus_in(self.label_register,"Confirmar registro de asistencia"))
+        self.label_register.bind("<Leave>",lambda e: self.on_focus_out(self.label_register))
 
         self.label_register.bind("<Button-1>", self.register_user)
         self.bind("<Return>", self.register_user)
 
-        self.view_list.bind("<Enter>",self.on_label_in_view_list)
-        self.view_list.bind("<Leave>",self.on_label_out_view_list)
+        self.view_list.bind("<Enter>",lambda e: self.on_focus_in(self.view_list,"Ver lista de asistencia especifica"))
+        self.view_list.bind("<Leave>",lambda e: self.on_focus_out(self.view_list))
 
         self.view_list.bind("<Button-1>", self.view_listWindow)
 
@@ -175,10 +175,6 @@ class AssistanceForm(ct.CTk):
         self.register_event_label.bind("<Leave>",lambda e: self.on_focus_out(self.register_event_label))
         #Register_event_label.bind ==> Modal Callback
         self.register_event_label.bind("<Button-1>",self.open_event_window)
-
-
-
-
         #Register_assistance_label.bind
         self.register_assistant_label.bind("<Enter>",lambda e: self.on_focus_in(self.register_assistant_label, " Registrar asistencia "))
         self.register_assistant_label.bind("<Leave>", lambda e: self.on_focus_out(self.register_assistant_label))
@@ -212,7 +208,7 @@ class AssistanceForm(ct.CTk):
 
     def on_focus_in(self, entry, message):
         entry.configure(text_color="#757575")
-        self.label_message.configure(text=message, fg_color="lightgray", text_color="#757575")
+        self.label_message.configure(text=message, fg_color="lightgray", text_color="#171616")
         self.after(1500, self.hide_label)
 
     def on_focus_out(self, entry):
