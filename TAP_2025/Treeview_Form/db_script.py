@@ -1,7 +1,7 @@
 import sqlite3
 
 class DataBase:
-    db_name = "Users.db"
+    db_name = "Register_user.db"
 
     # Inicializando la base de datos y tabla
     def __init__(self):
