@@ -13,48 +13,22 @@ y el que hayamos recibido, lo programamos.
 en CTkinter hay que implementar la aplicaciòn.
 
 """
-
+from CT_program_implements import AbstractMainApp
 import customtkinter as ct
 from PIL import Image
-from abc import ABC, abstractmethod
 from Translate_engine import TranslateEngine
 import threading
-ct.set_appearance_mode("light")  # default
+import CT_program_implements as CTI
 
-
-class AbstractMainApp(ABC):
-
-    @abstractmethod
-    def configure_grid_main(self):
-        pass
-
-    @abstractmethod
-    def frame_main_creation(self):
-        pass
-
-    @abstractmethod
-    def progress_bar_creation(self):
-        pass
-
-    @abstractmethod
-    def start_loading(self):
-        pass
-
-    @abstractmethod
-    def update_progress(self, value):
-        pass
-
-    @abstractmethod
-    def bind_creation(self):
-        pass
-
-class MainAppTraductor(ct.CTk,AbstractMainApp):
+class MainAppTraductor(ct.CTk,CTI.AbstractMainApp.AbstractMainAppClass):
     def __init__(self):
         super().__init__()
 
         self.title("Google Traductor")
         self.geometry("850x450")
         self.resizable(False, False)
+        ct.set_appearance_mode("light")  # default
+
         #self.configure(fg_color="white")
         #self.set_appearance_mode("dark")
         #self.set_appearance_mode("light")

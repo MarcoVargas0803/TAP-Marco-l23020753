@@ -5,52 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d7b809-df45-44a5-8411-f9c9439bb49b" name="Changes" comment="squash! Agregando la imagen usuario.png">
-      <change afterPath="$PROJECT_DIR$/TAP_2025/CT_program_implements/READ ME" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Calculadora/READ ME" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TAP_2025/Treeview_Form/READ ME" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/AbstractMainApp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/CT_program_implements/AbstractMainApp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/CT_program_implements/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Actividad060325/Formulario.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Treeview_Form/Formulario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Actividad060325/Users.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Treeview_Form/Users.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Actividad060325/db_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Treeview_Form/db_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Excercise_250225_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_with_db/Excercise_250225_register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Excercise_250225_register_with_db.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Exercise_250225.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_with_db/Exercise_250225.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/FotografiaUV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/MainApp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Persona.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Register_user.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_with_db/Register_user.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/Users.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/animate_c.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/db_script_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_with_db/db_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/foto_c.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/label_c.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/loading_screen_c.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/login_logo_dark_mode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/try_c.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Practice_ct/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/usuario.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema1/CRadio_Checkbox.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema1/Calculadora.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Calculadora/Calculadora.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema1/Contenedores.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema1/Radio_CheckBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/CT_program_implements/Radio_CheckBox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema1/intro_custom_tkinter.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/CT_program_implements/intro_custom_tkinter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/CtkProgressbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkProgressbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/CtkScrollableFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkScrollableFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/CtkTabview.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkTabview.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/CtkTabview_withoutclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkTabview_withoutclass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/Login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Registro.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/Registro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Scrollbar_Slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/Scrollbar_Slider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/Smtplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_Registro/Smtplib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema2/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Login_with_db/usuario.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/Users.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/UsersDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/db_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Tema3_BD/db_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/CT_program_implements/READ ME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/CT_program_implements/Radio_CheckBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/CT_program_implements/Radio_CheckBox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/CT_program_implements/intro_custom_tkinter.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/CT_program_implements/intro_custom_tkinter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Calculadora/Calculadora.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act1_Calculator/Calculadora.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Calculadora/READ ME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/AsisstantForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/AsisstantForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/AssistanceForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/AssistanceForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/Assistant.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/Assistant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/Event_Form.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/Event_Form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/ORM_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/ORM_classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/calendar_c.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/consult_AssistanceClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/consult_AssistanceClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/db_assistance.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/db_assistance.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/title_event_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/title_event_image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Ejercicio130325/try_c.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/FigmaActividad190325/Figma.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/Figma.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/FigmaActividad190325/Translate_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/Translate_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/FigmaActividad190325/google_t_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/google_t_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/FigmaActividad190325/python_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/python_c.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/FigmaActividad190325/reverse.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/reverse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkProgressbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/CtkProgressbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkScrollableFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/CtkScrollableFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkTabview.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/CtkTabview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/CtkTabview_withoutclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/CtkTabview_withoutclass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/Login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/Registro.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/Registro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/Scrollbar_Slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/Scrollbar_Slider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/Smtplib.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/Smtplib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_Registro/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act2_LoginRegister/usuario.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_with_db/Excercise_250225_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act4_Login_with_db/Excercise_250225_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_with_db/Exercise_250225.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act4_Login_with_db/Exercise_250225.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_with_db/Register_user.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act4_Login_with_db/Register_user.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_with_db/db_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act4_Login_with_db/db_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Login_with_db/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act4_Login_with_db/usuario.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Menu_Modal_Implementation/Menu_Modal.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/CT_program_implements/Menu_Modal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Menu_Modal_Implementation/tearoff.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/CT_program_implements/tearoff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/ORM_activity_100325/ORM_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act6_ORM_implement/ORM_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/ORM_activity_100325/add_ORM.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act6_ORM_implement/add_ORM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/ORM_activity_100325/consult_ORM.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act6_ORM_implement/consult_ORM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/ORM_activity_100325/misdatos.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act6_ORM_implement/misdatos.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/ORM_activity_100325/relationship_ORM.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act6_ORM_implement/relationship_ORM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/MiPrimera.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/MiPrimera.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/MiPrimeraBD.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/MiPrimeraBD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/Practica2_BD.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/Practica2_BD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/UsersDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/UsersDB.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/db_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/db_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/mainApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/mainApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Tema3_BD/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act3_DB_Implements/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Treeview_Form/Formulario.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act5_Treeview_Form/Formulario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Treeview_Form/READ ME" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act5_Treeview_Form/READ ME" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Treeview_Form/Register_user.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act5_Treeview_Form/Register_user.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Treeview_Form/Users.db" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act5_Treeview_Form/Users.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAP_2025/Treeview_Form/db_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAP_2025/Act5_Treeview_Form/db_script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="dev" />
@@ -70,28 +94,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CRadio_Checkbox.executor": "Run",
-    "Python.Calculadora.executor": "Run",
-    "Python.Contenedores (1).executor": "Run",
-    "Python.Contenedores.executor": "Run",
-    "Python.Exercise_250225.executor": "Run",
-    "Python.Formulario.executor": "Run",
-    "Python.Radio_CheckBox.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "last_opened_file_path": "C:/TAP_maniana",
-    "run.code.analysis.last.selected.profile": "aDefault"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.AsisstantForm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.AssistanceForm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.CRadio_Checkbox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Calculadora.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Contenedores (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Contenedores.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Exercise_250225.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Figma (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Figma.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Formulario.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MiPrimeraBD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Practica2_BD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Radio_CheckBox.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calendar_c.executor&quot;: &quot;Run&quot;,
+    &quot;Python.login.executor&quot;: &quot;Run&quot;,
+    &quot;Python.register.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/TAP_maniana/TAP_2025/Act8_FigmaDesign_and_Code&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\TAP_maniana\TAP_2025\Act8_FigmaDesign_and_Code" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\TAP_maniana\TAP_2025\Act8_FigmaDesign_and_Code" />
+      <recent name="C:\TAP_maniana\TAP_2025\Act8_FigmaDesign_and_Code\Main" />
+      <recent name="C:\TAP_maniana\TAP_2025\CT_program_implements\CT_program_implements" />
       <recent name="C:\TAP_maniana\TAP_2025\CT_program_implements" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Contenedores (1)">
-    <configuration name="CRadio_Checkbox" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Figma (1)">
+    <configuration name="AsisstantForm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,11 +139,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Calculadora" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\TAP_maniana\TAP_2025\CT_program_implements\CRadio_Checkbox.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/AsisstantForm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,7 +152,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Calculadora" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="AssistanceForm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,11 +161,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Calculadora" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Calculadora/Calculadora.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Act7_ORM_with_Treeview/AssistanceForm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,7 +174,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Contenedores (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Figma (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,11 +183,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/CT_program_implements" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/CT_program_implements/Contenedores.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code/Figma.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,7 +196,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Contenedores" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Figma" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,11 +205,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Calculadora" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Act8_FigmaDesign_and_Code" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\TAP_maniana\TAP_2025\CT_program_implements\Contenedores.py" />
+      <option name="SCRIPT_NAME" value="C:\TAP_maniana\TAP_2025\Act8_FigmaDesign_and_Code\Figma.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,7 +218,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Radio_CheckBox" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="login" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TAP_maniana" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -188,11 +227,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Calculadora" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAP_2025/Tema3_BD" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\TAP_maniana\TAP_2025\CT_program_implements\Radio_CheckBox.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAP_2025/Tema3_BD/login.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -203,11 +242,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Contenedores (1)" />
-        <item itemvalue="Python.Calculadora" />
-        <item itemvalue="Python.Contenedores" />
-        <item itemvalue="Python.CRadio_Checkbox" />
-        <item itemvalue="Python.Radio_CheckBox" />
+        <item itemvalue="Python.Figma (1)" />
+        <item itemvalue="Python.Figma" />
+        <item itemvalue="Python.AssistanceForm" />
+        <item itemvalue="Python.AsisstantForm" />
+        <item itemvalue="Python.login" />
       </list>
     </recent_temporary>
   </component>
@@ -232,5 +271,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="squash! Agregando la imagen usuario.png" />
     <option name="LAST_COMMIT_MESSAGE" value="squash! Agregando la imagen usuario.png" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAP_2025/Act1_Calculator/Calculadora.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

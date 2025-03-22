@@ -4,7 +4,10 @@ from tkinter.ttk import Treeview
 from db_script import DataBase
 from datetime import datetime
 import customtkinter as ct
-
+"""
+Actividad 060325
+Actividad para aprender a utilizar el treeview realizandolo dentro de un registro.
+"""
 
 class ControlMto(ct.CTk):
 

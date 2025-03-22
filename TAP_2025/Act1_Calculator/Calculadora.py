@@ -2,7 +2,7 @@ import customtkinter as ct
 
 # Configuración de la aplicación
 app = ct.CTk()
-app.title("Calculadora")
+app.title("Act1_Calculator")
 app.geometry("600x250")
 app.resizable(False, False)
 
