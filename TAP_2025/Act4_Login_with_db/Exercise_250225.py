@@ -1,8 +1,7 @@
 import customtkinter as ct
 from PIL import Image, ImageTk
 from Excercise_250225_register import Registro
-from MainApp import MainApp
-from db_script_c import DataBase
+from db_script import DataBase
 
 class LoginApp(ct.CTk):
     def __init__(self):
@@ -203,8 +202,8 @@ class LoginApp(ct.CTk):
 
     def open_main_window(self):
         self.destroy()  # Cierra la ventana actual
-        main = MainApp()  # Crea la nueva ventana
-        main.mainloop()  # Ejecuta la ventana principal
+        #main = MainApp()  # Crea la nueva ventana
+        #main.mainloop()  # Ejecuta la ventana principal
 
 
 app = LoginApp()
