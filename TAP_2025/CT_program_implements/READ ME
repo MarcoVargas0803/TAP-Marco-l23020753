@@ -1,0 +1,12 @@
+Carpeta para diferentes implementaciones de CustomTkinter
+Contenidos de la carpeta:
+·Intro_custom_tkinter => Configuraciòn inicial de customtkinter.
+.CTkButton ==>
+·CtkCheckbox ==>
+.CtkCombobox ==>
+·CtkEntry ==>
+·CtkFrame ==>
+·CtkLabel ==>
+·CtkOptionMenu ==>
+·CtkProgressBar ==> 
+·CtkRadioButton ==>
