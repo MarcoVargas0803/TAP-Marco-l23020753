@@ -27,4 +27,15 @@ Implementación de una ORM a un treeview.
 ### Act_8_FigmaDesign_and_Code:
 Actividad dual con compañero para creación de un diseño de ventana en "Figma" para despues ser intercambiado y programado el diseño del programa del otro.
 
+### Hilos
+Actividad: 
+Crear un arreglo de 15 imagenes solo copiar las URL para luego ser descargadas
+Crear una función que reciba la URL y descargue la imagen
+Crear un pull de hilos y hacer un mapeo de la función con la URl 
+
+Primero sin hilos , para checar el tiempo inicial y final 
+luego con los hilos multiples, checando el tiempo inicial y final
+
+Lo importante es que veamos la eficiencia
+Para mañana 26/03/2025
 
