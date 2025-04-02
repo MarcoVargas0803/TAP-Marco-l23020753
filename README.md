@@ -39,3 +39,17 @@ luego con los hilos multiples, checando el tiempo inicial y final
 Lo importante es que veamos la eficiencia
 Para mañana 26/03/2025
 
+### Nueva unidad
+Patrones de diseño, del patrón invesitgar que resuelve, comprender como se resuelve con diagrama UML, y después de ello
+realizar un ejemplo para el patrón de diseño en codigo. Tiene que ser intuitivo y facil de identificar 
+que hace el codigo paso en paso en cada diapostiva, se debe agregar un video no más largo de 10 mins.
+En diapositivas. 
+Equipo 4 : Patrón de diseño Builder.
+Libro recomendado de documentación: HeadFirst
+
+### Threads
+Serie de ejemplos de hilos, para ver como funcionan y como se pueden implementar en un , asi como 
+de diferentes funcionalides "semaphore", "lock", "event", "condition", pendiente de documentación de
+cada uno de los ejemplos.
+
+
