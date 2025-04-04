@@ -9,7 +9,6 @@ from random import randint
 import threading
 from threading import Thread, Condition
 
-
 class RaceApp(ct.CTk, cti.AbstractMainApp.AbstractMainAppClass):
     def __init__(self):
         super().__init__()
@@ -26,6 +25,8 @@ class RaceApp(ct.CTk, cti.AbstractMainApp.AbstractMainAppClass):
         self.x_pos1 = 50
         self.x_pos2 = 50
         self.x_pos3 = 50
+
+        self.condition = Condition()
 
         self.configure_grid_main()
         self.frame_main_creation()
@@ -100,6 +101,7 @@ class RaceApp(ct.CTk, cti.AbstractMainApp.AbstractMainAppClass):
         #Definir variables principales x
 
         pass
+
     def start_loading(self):
         self.x_pos1 = 50
         self.x_pos2 = 50
@@ -110,38 +112,50 @@ class RaceApp(ct.CTk, cti.AbstractMainApp.AbstractMainAppClass):
         threading.Thread(target=self.run_racer, args=(self.canvaRacer2, self.image2_canva, 4, 2)).start()
         threading.Thread(target=self.run_racer, args=(self.canvaRacer3, self.image3_canva, 6, 3)).start()
 
-        #RandomInt numers into 0 to 10
+        # RandomInt numers into 0 to 10
         self.speed_racer1 = randint(1, 5)
         self.speed_racer2 = randint(1, 5)
         self.speed_racer3 = randint(1, 5)
 
-        #print the speed of the racers
+        # Imprimir la velocidad de los corredores
         print(f"Speed of racer 1: {self.speed_racer1}")
         print(f"Speed of racer 2: {self.speed_racer2}")
         print(f"Speed of racer 3: {self.speed_racer3}")
 
-        #Create a list of args to enumarate the racers
+        # Crear una lista de argumentos para enumerar a los corredores
         args = [(self.canvaRacer1, self.image1_canva, self.speed_racer1, 1),
                 (self.canvaRacer2, self.image2_canva, self.speed_racer2, 2),
                 (self.canvaRacer3, self.image3_canva, self.speed_racer3, 3)]
 
-        # Created shared condition
-        for i in range(3):
-            worker = Thread(target=self.run_racer, args=args[i])
-            worker.start()
+        # Crear una condición compartida para sincronizar la ejecución
+        with self.condition:
+            for i in range(3):
+                worker = Thread(target=self.run_racer, args=args[i])
+                worker.start()
+
+            # Despertar todos los hilos para que comiencen al mismo tiempo
+            self.condition.notify_all()
 
     def run_racer(self, canvas, image_id, speed, racer_number):
         lock = threading.Lock()
         x_pos = 50
+        print(f"Corredor numero {racer_number} ha comenzado listo en la parrilla")
+
+        # Sincronización para esperar a que todos los hilos estén listos
+        with self.condition:
+            self.condition.wait()
+
         while x_pos < 750:
             x_pos += speed
             lock.acquire()
+            # Usar after para asegurar que las actualizaciones ocurran en el hilo principal
             self.after(0, canvas.coords, image_id, x_pos, 50)
             lock.release()
             threading.Event().wait(0.05)
 
             if x_pos >= 750:
                 print(f"Corredor {racer_number} ha llegado!")
+                break  # Evita que el hilo siga corriendo innecesariamente
 
     def update_progress(self, value):
         pass
