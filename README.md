@@ -50,6 +50,11 @@ Libro recomendado de documentación: HeadFirst
 ### Threads
 Serie de ejemplos de hilos, para ver como funcionan y como se pueden implementar en un , asi como 
 de diferentes funcionalides "semaphore", "lock", "event", "condition", pendiente de documentación de
-cada uno de los ejemplos.
+cada uno de los ejemplos. 
+### Threads activity
+Crear una aplicación con interfaz grafica que represente una carrera (de coches, de caballos, etc.. ),
+cada competidor va a ser un hilo con random(). 
+
+
 
 
