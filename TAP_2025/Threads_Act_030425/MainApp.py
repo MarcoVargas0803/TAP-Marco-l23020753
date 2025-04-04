@@ -5,8 +5,9 @@ import customtkinter as ct
 import tkinter as tk
 import CT_program_implements as cti
 from PIL import Image, ImageTk
-from random import random
-from threading import Thread
+from random import randint
+import threading
+from threading import Thread, Condition
 
 
 class RaceApp(ct.CTk, cti.AbstractMainApp.AbstractMainAppClass):
@@ -100,15 +101,47 @@ class RaceApp(ct.CTk, cti.AbstractMainApp.AbstractMainAppClass):
 
         pass
     def start_loading(self):
-        #Mueve la imagen del punto A al punto B
-        if self.x_pos1 < 850:  # Punto B (final de la animación)
-            self.x_pos1 += 5  # Incremento en la posición
+        self.x_pos1 = 50
+        self.x_pos2 = 50
+        self.x_pos3 = 50
 
-            # Mover la imagen en el Canvas
-            self.canvaRacer1.coords(self.image1_canva, self.x_pos1, 50)  # Cambia la posición Y según sea necesario
+        # Iniciar hilos por corredor
+        threading.Thread(target=self.run_racer, args=(self.canvaRacer1, self.image1_canva, 5, 1)).start()
+        threading.Thread(target=self.run_racer, args=(self.canvaRacer2, self.image2_canva, 4, 2)).start()
+        threading.Thread(target=self.run_racer, args=(self.canvaRacer3, self.image3_canva, 6, 3)).start()
 
-            # Llamar a la función de nuevo después de 50ms
-            self.after(50, self.start_loading)
+        #RandomInt numers into 0 to 10
+        self.speed_racer1 = randint(1, 5)
+        self.speed_racer2 = randint(1, 5)
+        self.speed_racer3 = randint(1, 5)
+
+        #print the speed of the racers
+        print(f"Speed of racer 1: {self.speed_racer1}")
+        print(f"Speed of racer 2: {self.speed_racer2}")
+        print(f"Speed of racer 3: {self.speed_racer3}")
+
+        #Create a list of args to enumarate the racers
+        args = [(self.canvaRacer1, self.image1_canva, self.speed_racer1, 1),
+                (self.canvaRacer2, self.image2_canva, self.speed_racer2, 2),
+                (self.canvaRacer3, self.image3_canva, self.speed_racer3, 3)]
+
+        # Created shared condition
+        for i in range(3):
+            worker = Thread(target=self.run_racer, args=args[i])
+            worker.start()
+
+    def run_racer(self, canvas, image_id, speed, racer_number):
+        lock = threading.Lock()
+        x_pos = 50
+        while x_pos < 750:
+            x_pos += speed
+            lock.acquire()
+            self.after(0, canvas.coords, image_id, x_pos, 50)
+            lock.release()
+            threading.Event().wait(0.05)
+
+            if x_pos >= 750:
+                print(f"Corredor {racer_number} ha llegado!")
 
     def update_progress(self, value):
         pass
