@@ -55,6 +55,7 @@ cada uno de los ejemplos.
 Crear una aplicación con interfaz grafica que represente una carrera (de coches, de caballos, etc.. ),
 cada competidor va a ser un hilo con random(). 
 
-
+### ChatBot
+Desde la información que se encuentra en la pagina de Real Python, realizar un CHatterBot, crea un chatbot con Python
 
 
